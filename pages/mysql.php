@@ -16,7 +16,7 @@ class DB {
 	}
 	
 	function isUserLoggedIn() {
-		$stmt = self::$_db->prepare("SELECT pers.personal_ID, Pers.Personalnummer, rech.Passwort, rech.Session from personal AS pers inner join rechte As rech ON (pers.Personal_ID = rech.Personal_Personal_ID) WHERE Session=:sid");
+		$stmt = self::$_db->prepare("SELECT pers.personal_ID, pers.Personalnummer, rech.Passwort, rech.Session FROM personal AS pers INNER JOIN rechte AS rech ON (pers.Personal_ID = rech.Personal_Personal_ID) WHERE Session=:sid");
 		$stmt->bindParam(":sid", session_id());
 		$stmt->execute();
 		

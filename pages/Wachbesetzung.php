@@ -4,18 +4,13 @@
  
 		<div id="main_head">
 		<form action="mysql.php" method="post">
-		<label style='display: block; line-height: 24px;line-width:120px'>Dienststelle:
-		
-		<?php 
-			
-		echo " 	 <select id='Dienststelle' name='Dienststelle'>                          
-                    <option value='.$Dienststelle'>'.$Wache_Bezeichnung'</option>
- 					<option value='0'></option>
-					<option value='1'>FW_1300</option>
- 					<option value='2'>FW_2200</option>
- 					<option value='3'>FW_2600</option>		
- 					
-					</select> <input type='submit' name='DienststellenZuordnung' value='Auswahl'>"
+		<label style='display: block; line-height: 24px; line-width: 120px'>Dienststelle:			
+		<select id='Dienststelle' name='Dienststelle'>                          
+ 			<option value='0'></option>
+			<option value='1'>FW_1300</option>
+ 			<option value='2'>FW_2200</option>
+ 			<option value='3'>FW_2600</option>		
+ 		</select> <input type='submit' name='DienststellenZuordnung' value='Auswahl'>"
 		?>
 		
 		</label>

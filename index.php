@@ -1,14 +1,10 @@
 <?php
 	session_start();
 	
-    if(isset($_GET["section"]))
-    {
+    if(isset($_GET["section"])){
         $section = $_GET["section"];
-    }
-    else
-    {
-        $section = "";
-    }
+    }else{
+        $section = "";}
 	
 	require_once 'pages/mysql.php';
 	$db = new DB();
@@ -31,23 +27,22 @@
 
 <body>
 
-	<div id="wrapper">
-		<header>
-         <?php include("pages/header.php");?>
-       </header>
+    <div id="wrapper">
+	<header>
+            <?php include("pages/header.php");?>
+        </header>
 
-		<nav>
-       <?php include("pages/nav.php")?>
-       </nav>
+        <nav>
+            <?php include("pages/nav.php")?>
+        </nav>
+        
+            <div id="main">  
+                <?php include("pages/sites.php"); ?> 
+            </div>       
+    </div>
 
-		<div id="main">  
-       <?php include("pages/sites.php"); ?> 
-       </div>
-       
-	</div>
-
-	<footer>       
-       <?php include ("pages/footer.php")?>
-       </footer>
+        <footer>       
+           <?php include ("pages/footer.php")?>
+        </footer>
 </body>
 </html>

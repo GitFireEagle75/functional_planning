@@ -531,14 +531,12 @@
 		    <!--Aufbau Tagdienst
 		 	Fahrzeuge-->
 		 	<table>
-            <tr>
-		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
-		 	    <option value='.PersNr'>Feesche</option></select>
-			      <input class='PersInfo' type='submit' value='i'/></td>
-		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
-		 	    <option value='.PersNr'>Feesche</option></select>
-		 		  <input class='PersInfo' type='submit' value='i'/></td>
-		 	</tr>
+            <tr><td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		    <option value='.PersNr'>Feesche</option></select>
+                    <input class='PersInfo' type='submit' value='i'/></td>
+            <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		    <option value='.PersNr'>Feesche</option></select>
+		    <input class='PersInfo' type='submit' value='i'/></td></tr>
 		 	
 		 	<tr>
 		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>

@@ -22,31 +22,33 @@
 		<div id="main_funktion" class="border">
 		<label><span>Funktionen</span></label>
 		<table>		
-				<tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
-				<tr><td class='FunktionAuswahl'>MA_1<td><td>(52)</td></tr>
-		        <tr><td class='FunktionAuswahl'>Atr_1<td><td>(52)</td></tr>
-		        <tr><td class='FunktionAuswahl'>Wtr_1<td><td>(54)</td></tr>
+                        <tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
+                        <tr><td class='FunktionAuswahl'>MA_1<td><td class='FunktionAuswahl'>(52)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'>(52)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'>(54)</td></tr>
 		        <tr><td class="border"><td><td class="border"><td></tr>
 		        <tr><td class="border"><td><td class="border"><td></tr>
-		        <tr><td class='FunktionAuswahl'>Dlk<td><td>(51)</td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>		 
-		        <tr><td class='FunktionAuswahl'>Stf_2<td><td>(38)</td></tr>
-		        <tr><td class='FunktionAuswahl'>MA_2<td><td>(53)</td></tr>
-		        <tr><td class='FunktionAuswahl'>Atr_2<td><td>(53)</td></tr>
-		        <tr><td class='FunktionAuswahl'>Wtr_2<td><td>(55)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Dlk<td><td class='FunktionAuswahl'>(51)</td></tr>
 		        <tr><td class="border"><td><td class="border"><td></tr>
 		        <tr><td class="border"><td><td class="border"><td></tr>		 
-		        <tr><td class='FunktionAuswahl'>RTW_1<td><td>(71)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Stf_2<td><td class='FunktionAuswahl'>(38)</td></tr>
+		        <tr><td class='FunktionAuswahl'>MA_2<td><td class='FunktionAuswahl'>(53)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Atr_2<td><td class='FunktionAuswahl'>(53)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Wtr_2<td><td class='FunktionAuswahl'>(55)</td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>		 
+		        <tr><td class='FunktionAuswahl'>RTW_1<td><td class='FunktionAuswahl'>(71)</td></tr>
 		        <tr><td class="border"><td><td class="border"><td></tr>	
 		        <tr><td class="border"><td><td class="border"><td></tr>	 
-		        <tr><td class='FunktionAuswahl'>RTW_2620<td><td>(71)</td></tr>
+		        <tr><td class='FunktionAuswahl'>RTW_2620<td><td class='FunktionAuswahl'>(71)</td></tr>
 		        <tr><td class="border"><td><td class="border"><td></tr>	
 		        <tr><td class="border"><td><td class="border"><td></tr>	 
-		        <tr><td class='FunktionAuswahl'>RTW_1310<td><td>(71)</td></tr>
+		        <tr><td class='FunktionAuswahl'>RTW_1310<td><td class='FunktionAuswahl'>(71)</td></tr>
 		        <tr><td class="border"><td><td class="border"><td></tr>	
 		        <tr><td class="border"><td><td class="border"><td></tr>	 
-		        <tr><td class='FunktionAuswahl'>RTW_1310<td><td>(72)</td></tr>		  
+		        <tr><td class='FunktionAuswahl'>RTW_1310<td><td class='FunktionAuswahl'>(72)</td></tr>
+                        <tr><td class="border"><td><td class="border"><td></tr>	
+		        <tr><td class="border"><td><td class="border"><td></tr>
 		</table>
 		</div>
 		

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="Content-Type" content="html" charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="author-personal" content="Marcel Feesche" />
+<meta name="author-mail"
+	content="mailto:marcelfeesche@berliner-feuerwehr.de" />
+<meta name="description"
+	content="Projekt Funktionsbesetzung alle Wachen" />
+<meta name="language" content="de" />
+
+<link rel="stylesheet" href="css/default.css" type="text/css"
+	media="screen, projection">
+	
+<title>Wachbesetzung</title>
+</head>
+<body>
+
+	<div id="wrapper">
+		<header>
+         <h1>
+	<img src="image/BERLINER FEUERWEHR.gif"
+		alt="Logo Feuerwehr" width="350" height="81" />
+</h1>
+<h2>
+	<img src="image/navi-line-e10227.png"
+		alt="" width="1245" height="40"/>
+</h2>
+       </header>
+
+		<nav>
+       <ul>
+	<li><a href="Wachbesetzung.php">Wachbesetzung</a></li> 
+	<li><a href="Planung.php">Planung</a></li>
+	<li><a href="Anwesenheit.php">Anwesenheit</a></li>
+	<li><a href="Personal.php">Personal</a></li>
+	<li><a href="Fahrzeuge.php">Fahrzeuge</a></li>
+	<li><a href="login.php">Login</a></li>
+
+</ul>
+       </nav>
+
+		<div id="main">  
+       <h1>Wachbesetzung</h1>
+		<div id="main_head">
+			<label style="display: block; line-height: 24px;line-width:120px">Dienststelle: <select
+				id="Dienststelle" name="Dienststelle">
+					<option value="0"></option>
+					<option value="1300">FW 1300</option>
+					<option value="2200">FW 2200</option>
+					<option value="2400">FW 2400</option>
+					<option value="2600">FW 2600</option>
+					<option value="6100">FW 6100</option>
+					<option value="6300">FW 6300</option>
+					<option value="6600">FW 6600</option>
+					<option value="2300">FW 2300</option>
+			</select> <input type='submit' value=speichern></label>
+		</div>
+		
+		
+		
+		<div id="main_funktion" class="border">
+		<label><span>Funktionen</span></label>
+		<table>		
+				<tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
+				<tr><td class='FunktionAuswahl'>MA_1<td><td>(52)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Atr_1<td><td>(52)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Wtr_1<td><td>(54)</td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>
+		        <tr><td class='FunktionAuswahl'>Dlk<td><td>(51)</td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>		 
+		        <tr><td class='FunktionAuswahl'>Stf_2<td><td>(38)</td></tr>
+		        <tr><td class='FunktionAuswahl'>MA_2<td><td>(53)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Atr_2<td><td>(53)</td></tr>
+		        <tr><td class='FunktionAuswahl'>Wtr_2<td><td>(55)</td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>		 
+		        <tr><td class='FunktionAuswahl'>RTW_1<td><td>(71)</td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>	
+		        <tr><td class="border"><td><td class="border"><td></tr>	 
+		        <tr><td class='FunktionAuswahl'>RTW_2620<td><td>(72)</td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>	
+		        <tr><td class="border"><td><td class="border"><td></tr>	 
+		        <tr><td class='FunktionAuswahl'>RTW_1310/1<td><td>(73)</td></tr>
+		        <tr><td class="border"><td><td class="border"><td></tr>	
+		        <tr><td class="border"><td><td class="border"><td></tr>	 
+		        <tr><td class='FunktionAuswahl'>RTW_1310/2<td><td>(74)</td></tr>		  
+		</table>
+		</div>
+			
+
+<div id='main_plan_left' class='border'>
+		 	<label>Nachtdienst   </label><input class='Datum' type='date' name='Datum_links' value= "">
+		     <!--Aufbau Nachtdienst
+		      Fahrzeuge-->
+		 	<table>
+            <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	<tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>	
+		 </tr>
+		 	
+		  <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>	
+		 </tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		<tr>
+		 	<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>		
+		</tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		 	<tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	<tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		  <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>	
+		 </tr>
+		 	
+          <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>	
+		 </tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		 	<tr>
+		 			<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		 	<tr>
+		 			<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		 	<tr>
+		 			<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 			
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 
+		 	<tr>
+		 			<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	</table>
+		 	</div>
+		
+		    <div id='main_plan_right' class='border'>
+		 	<label>Tagdienst       </label><input class='Datum' type='date' name='Datum_rechts' value= "">
+		    <!--Aufbau Tagdienst
+		 	Fahrzeuge-->
+		 	<table>
+            <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	<tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>	
+		 </tr>
+		 	
+		  <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>	
+		 </tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		<tr>
+		 	<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>		
+		</tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		 	<tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	<tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		  <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>	
+		 </tr>
+		 	
+          <tr>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>	
+		 </tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		 	<tr>
+		 			<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		 	<tr>
+		 			<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	
+		 	<tr>
+		 			<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 			
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 	<tr><td class='border'></td><td class='border'></td><td class='border'></td></tr>
+		 
+		 	<tr>
+		 			<td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+			      <input class='PersInfo' type='submit' value='i'/></td>
+		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select>
+		 		  <input class='PersInfo' type='submit' value='i'/></td>
+		 	</tr>
+		 	
+		 	</table>
+		 	</div> 
+       </div>
+       
+	</div>
+
+	<footer>       
+    <p class="author">OBM Marcel Feesche</p>
+<p class="wache">Feuerwache Prenzlauer Berg</p>
+<p class="tel">030 387 1300 105</p>
+<p class="mail">MarcelFeesche@berliner-feuerwehr.de</p>
+       </footer>
+</body>
+</html>

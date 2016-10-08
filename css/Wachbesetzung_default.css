@@ -1,0 +1,215 @@
+@charset "utf-8";
+/**
+ * @link   
+ * @package Wachbesetzung
+ * @version 1.0
+ */
+
+/**
+ * Globale Einstellungen und Bugfixes 
+ * @section Browser-Reset
+ */
+
+/* Zurücksetzen der Innen- und Außenabstände */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Schriftgröße kontrollieren
+ */
+body, td, th {
+	font: normal 75%/167% Georgia, Palatino, "Times New Roman", serif;
+}
+
+td, th {
+	f\ont-size: 100.01%;
+}
+
+/* Farben und Hintergründe setzen */
+html, body {
+	color: #3b2b20;
+	background-color: white;
+}
+
+body {
+	
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+/**
+ * Regeln für allgemeine Elemente
+ *
+ * @section Überschriften
+ */
+h1 {
+	color: #9F0F00;
+	background-color: white;
+	font-size: 3em;
+	line-height: 1.1;
+	margin: .8em 0;
+}
+
+h2 {
+	color: #3C6331;
+	background-color: white;
+	font-size: 1.5em;
+	margin: .8em 0;
+	text-transform: uppercase;
+	line-height: 1.1;
+}
+
+/**
+ * @section Absätze
+ */
+p {
+	margin: .8em 0;
+}
+
+/**
+ * @section Bilder
+ */
+img {
+	vertical-align: bottom;
+}
+
+/* Rahmen verlinkter Bilder entfernen */
+a img {
+	border: 0;
+}
+
+/**
+ * @section Links und Anker
+ */
+a:link {
+	color: #980c02;
+	background-color: transparent;
+}
+
+a:visited {
+	color: #999;
+	background-color: transparent;
+}
+
+a:hover, a:focus {
+	color: #FF7700;
+	background-color: transparent;
+}
+
+a:active {
+	color: white;
+	background-color: #980c02;
+}
+
+/**
+ * @section Listen
+ */
+ul, ol {
+	margin: 1em 0 1em 2em;
+}
+
+li {
+	margin: 0 0 .5em 0;
+}
+
+dt {
+	color: #3C6331;
+	background-color: white;
+	font-size: 1.5em;
+	text-align: left;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 1.5em 0 .5em 0;
+}
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+
+/**
+ * Regeln für besondere Bereiche
+ * 
+ * @section Kopfbereich
+ */
+div#head {
+	width: 932px;
+	margin: auto;
+	position: relative;
+}
+
+#head h1 {
+	margin: 0;
+	padding: 0;
+	width: 288px;
+}
+/*------------------------------------------------------------------------------------------------------*/
+
+/**
+ * @section Hauptmenü
+ */
+#head ul {
+	position: absolute;
+	bottom: 50px;
+	right: 20px;
+	margin: 0;
+}
+
+#head ul li {
+	float: left;
+	list-style: none;
+	margin: 0 0 0 8px;
+	border: 1px solid withe;
+	border-radius: 5px;
+}
+
+#head ul a, #head ul strong {
+	color: #352545;
+	background: #FBFBFB url(images/nav_bg.gif) bottom left repeat-x;
+	display: block;
+	padding: .8em;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#head ul a:hover, #head ul a:focus, #head ul a:active, #head ul strong {
+	color: white;
+	background: #FE0018 url(images/nav_bg_hover1.gif) bottom left repeat-x;
+}
+
+/**
+ * Regeln für allgemeine Elemente
+ *
+ * @section Überschriften
+ */
+div#main {
+	color: inherit;
+}
+
+#main div#main-inner {
+	color: inherit;
+	width: 932px;
+	margin: 0 auto;
+	padding: 348px 0 0 0;
+}
+
+/**
+ * @section Footer
+ */
+div#footer {
+	color: #7F6063;
+	background-color: #F3F2FA;
+	padding: 24px 450px;
+	font-family: Tahoma, Arial, sans-serif;
+	font-size: .9em;
+	clear: both;
+	margin: 24px 0 0 0;
+}
+
+#footer p {
+	width: 932px;
+	margin: 0 auto;
+}
+
+/*------------------------------------------------------------------------------------------------------*/

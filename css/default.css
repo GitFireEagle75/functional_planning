@@ -1,0 +1,335 @@
+@charset "utf-8";
+/**
+ * @link   
+ * @package Wachbesetzung
+ * @version 1.0
+ */
+
+/**
+ * Globale Einstellungen und Bugfixes 
+ * @section Browser-Reset
+ */
+
+/* Zurücksetzen der Innen- und Außenabstände */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Schriftgröße kontrollieren
+ */
+body, td, th {
+	font: normal 75%/167% Georgia, Palatino, "Times New Roman", serif;
+}
+
+td, th {
+	f\ont-size: 100.00%;
+}
+
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 980px;
+	  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+	/* background-color: #80ffff; */
+}
+
+/* Farben und Hintergründe setzen */
+html, body {
+	color: #3b2b20;
+	background-color: #fbfbfb;
+}
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+/**
+ * Regeln für allgemeine Elemente
+ *
+ * @section Überschriften
+ */
+h1 {
+	margin: 5px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+}
+
+h2 {
+	
+}
+
+/**
+ * @section Absätze
+ */
+p {
+	margin: .8em 0;
+}
+
+/**
+ * @section Bilder
+ */
+img {
+	vertical-align: bottom;
+}
+
+/* Rahmen verlinkter Bilder entfernen */
+a img {
+	border: 0;
+}
+
+/**
+ * @section Links und Anker
+ */
+a:link {
+	color: #980c02;
+	background-color: transparent;
+}
+
+a:visited {
+	color: #999;
+	background-color: transparent;
+}
+
+a:hover, a:focus {
+	color: #FF7700;
+	background-color: transparent;
+}
+
+a:active {
+	color: white;
+	background-color: #980c02;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+
+/**
+ * Regeln für besondere Bereiche
+ * 
+ * @section Kopfbereich
+ */
+header {
+	width: 980px;
+	padding: 3px 3px 3px 3px;
+}
+
+header h1 {
+	margin: 0;
+	padding: 0;
+	width: 980px;
+}
+
+/**
+ * @section Hauptmenü
+ */
+nav ul {
+	bottom: 0px;
+	right: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+nav ul li {	
+	float: left;
+	list-style: none;
+	margin: 0 0 0 8px;
+	border: 1px solid withe;
+	border-radius: 5px;
+}
+
+nav ul a, nav ul strong {
+	color: #352545;
+	background: #FBFBFB url(images/nav_bg.gif) bottom left repeat-x;
+	display: block;
+	padding: .8em;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+nav ul a:hover, nav ul a:focus, nav ul a:active, nav ul strong {
+	color: white;
+	background: #FE0018 url(images/nav_bg_hover1.gif) bottom left repeat-x;
+}
+
+/**
+ * @section Hauptbereich
+ */
+div#main {
+	
+	width: 960px;
+	background-color: #E9E9E9;
+	margin: 0px 2px 2px 0px;
+	padding: 0px 0px 0px 0px;
+	clear: both;
+	  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;	
+}
+
+#main h1 {
+	color: #B45f04;
+	margin: auto;
+	padding: 10px 10px 10px 300px;
+}
+
+#main form{
+	margin: 0px 0px 0px 0px;
+	padding: 10px 10px 10px 10px;
+}
+
+div#main_head{
+	background-color: #E9E9E9;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 10px 10px 10px;
+}
+
+#main_head label{
+	background-color: #E9E9E9;
+	font-weight: bold;
+	font-size: 20px;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 10px 10px 180px;
+}
+
+div#main_funktion{
+	background-color: #E9E9E9;
+	float: left;
+	min-width: 15%;
+	min-height: 500px;
+	font-weight: bold;
+	font-size: 20px;
+	/*border: 1px solid black;
+	border-radius: 10px;*/
+	margin: 2px 2px 2px 0px;
+	padding: 10px 10px 10px 10px;
+	  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#main_funktion table{
+	min-width: 100%;
+/*	height:22px;*/
+	font-size: 12px;
+	backgrundcolor: #dadada;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin: 2px 2px 2px 2px;
+	padding: 10px 10px 10px 10px;	
+}
+
+#main_funktion th{
+	backgrundcolor: #ffc082;
+	
+}
+
+div#main_plan_left{
+	background-color: #E9E9E9;
+	float: left;
+	font-weight: bold;
+	font-size: 20px;
+	min-width:41.72%;
+	min-height: 500px;
+	margin: 2px 2px 2px 2px;
+	padding: 10px 10px 10px 10px;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#main_plan_left table{
+	width: 100%;
+	height:22px;
+	backgrundcolor: #dadada;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin: 2px 2px 2px 2px;
+	padding: 10px 10px 10px 10px;
+}
+
+#main_plan_left td{
+	width: 33%;
+}
+
+div#main_plan_right{
+	background-color: #E9E9E9;
+	float: left;
+	font-weight: bold;
+	font-size: 20px;
+	min-width: 41.72%;
+	min-height: 500px;
+	margin: 2px 0px 2px 2px;
+	padding: 10px 10px 10px 10px;
+	  -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+#main_plan_right table{
+	min-width: 100%;
+	height:22px;
+	backgrundcolor: #dadada;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin: 2px 2px 2px 2px;
+	padding: 10px 10px 10px 10px;
+
+}
+
+#main_plan_right td{
+		width: 33%;
+}
+
+/**
+ * @section Footer
+ */
+body>footer {
+	width: 980px; color : #7F6063;
+	background-color: #feefbc;
+	padding: 24px 450px;
+	font-family: Tahoma, Arial, sans-serif;
+	font-size: .9em;
+	clear: both;
+	color: #7F6063; background-color : #feefbc; padding : 24px 450px;
+	font-family : Tahoma, Arial, sans-serif; font-size : .9em; clear : both;
+	margin: 24px 0 0 0;
+}
+
+body>footer p {
+	width: 980px;
+	margin: 0 auto;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+
+.border {
+	border-bottom: 1px dotted #000;
+    text-align: center;
+    }
+         
+.Datum {
+	text-align: center;
+	}
+
+.PersInfo{
+	text-align: center;
+	 position: relative;
+	 width: 16%;
+}
+
+.PersAuswahl{
+  text-align: center;
+  position: relative;
+  width: 80%; 
+  height: 29.9px;
+	
+}
+
+.FunktionAuswahl{
+  text-align: center;
+  /*position: relative;*/
+  font-size:13px;
+  /*weight: 200px;*/
+  height: 30px;
+	
+}

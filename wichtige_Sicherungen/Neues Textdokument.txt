@@ -1,0 +1,202 @@
+        <table>					
+		<tr><td><select><option class="PersAuswahl" value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>    
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>    
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    
+		<tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>    
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>    
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+
+		</table>
+		</div>			
+
+	<div id="main_plan_right" class="border">
+		<?php
+// 		$aktuelleDatum   = date('d.m.Y');
+// 		$aktuelleZeit    = date('TH:i:s');
+// 		$verglZeit       = date('20:10:00');
+// 		$timestamp       = strtotime($aktuelleDatum.' + 1 day');
+// 		$morgen          = date('d.m.Y', $timestamp);
+		
+		 if($aktuelleZeit >= $verglZeit)		 		
+		 	echo "<label>Nachtdienst </label><input class='Datum' type='date' name='Datum_rechts' value=".$aktuelleDatum.">"; 	
+		 else 
+		 	echo "<label>Tagdienst   </label><input class='Datum' type='date' name='Datum_rechts' value=".$morgen.">";
+        ?>	
+		<table>
+		<tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>    
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>    
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    
+		<tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>    
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>    
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+		                
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+		    <tr><td class="border"><td><td class="border"><td><td class="border"><td></tr>
+
+		    <tr><td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td>
+		    <td><select><option value=".PersNr">Name0</option>
+		                <option value=".PersNr">Name1</option></select><td></tr>
+
+		</table>
+	</div>

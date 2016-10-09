@@ -3,15 +3,15 @@
 <!-- 	Code Wachauswahl -->
  
 		<div id="main_head">
-		<form action="mysql.php" method="post">
+		<form action="" method="post">
 		<label style='display: block; line-height: 24px; line-width: 120px'>Dienststelle:			
 		<select id='Dienststelle' name='Dienststelle'>                          
  			<option value='0'></option>
 			<option value='1'>FW_1300</option>
  			<option value='2'>FW_2200</option>
  			<option value='3'>FW_2600</option>		
- 		</select> <input type='submit' name='DienststellenZuordnung' value='Auswahl'>"
-		?>
+ 		</select> <input type='submit' name='DienststellenZuordnung' value='Auswahl'>
+		
 		
 		</label>
 		</form>
@@ -22,33 +22,7 @@
 		<div id="main_funktion" class="border">
 		<label><span>Funktionen</span></label>
 		<table>		
-                        <tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
-                        <tr><td class='FunktionAuswahl'>MA_1<td><td class='FunktionAuswahl'>(52)</td></tr>
-		        <tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'>(52)</td></tr>
-		        <tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'>(54)</td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>
-		        <tr><td class='FunktionAuswahl'>Dlk<td><td class='FunktionAuswahl'>(51)</td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>		 
-		        <tr><td class='FunktionAuswahl'>Stf_2<td><td class='FunktionAuswahl'>(38)</td></tr>
-		        <tr><td class='FunktionAuswahl'>MA_2<td><td class='FunktionAuswahl'>(53)</td></tr>
-		        <tr><td class='FunktionAuswahl'>Atr_2<td><td class='FunktionAuswahl'>(53)</td></tr>
-		        <tr><td class='FunktionAuswahl'>Wtr_2<td><td class='FunktionAuswahl'>(55)</td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>		 
-		        <tr><td class='FunktionAuswahl'>RTW_1<td><td class='FunktionAuswahl'>(71)</td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>	
-		        <tr><td class="border"><td><td class="border"><td></tr>	 
-		        <tr><td class='FunktionAuswahl'>RTW_2620<td><td class='FunktionAuswahl'>(71)</td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>	
-		        <tr><td class="border"><td><td class="border"><td></tr>	 
-		        <tr><td class='FunktionAuswahl'>RTW_1310<td><td class='FunktionAuswahl'>(71)</td></tr>
-		        <tr><td class="border"><td><td class="border"><td></tr>	
-		        <tr><td class="border"><td><td class="border"><td></tr>	 
-		        <tr><td class='FunktionAuswahl'>RTW_1310<td><td class='FunktionAuswahl'>(72)</td></tr>
-                        <tr><td class="border"><td><td class="border"><td></tr>	
-		        <tr><td class="border"><td><td class="border"><td></tr>
+                    <?php include("pages/Fahrzeug_Trupp_Bezeichnung.php");?>
 		</table>
 		</div>
 		
@@ -372,22 +346,18 @@
 		 	</tr>
 		 	
 		 	</table>
-		 	</div>";}		 
+		 	</div>" ;}		 
 
 		 else{  
 		 	echo "<div id='main_plan_left' class='border'>
 		 	<label>Nachtdienst   </label><input class='Datum' type='date' name='Datum_links' value= ".$aktuellesDatum.">
 		     <!--Aufbau Nachtdienst
 		      Fahrzeuge-->
-		 	<table>
-            <tr>
-		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
-		 	    <option value='.PersNr'>Feesche</option></select>
-			      <input class='PersInfo' type='submit' value='i'/></td>
-		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
-		 	    <option value='.PersNr'>Feesche</option></select>
-		 		  <input class='PersInfo' type='submit' value='i'/></td>
-		 	</tr>
+		 	<table>";
+                 echo"   <tr><td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select><input class='PersInfo' type='submit' value='i'/></td>
+                            <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+		 	    <option value='.PersNr'>Feesche</option></select><input class='PersInfo' type='submit' value='i'/></td></tr>
 		 	
 		 	<tr>
 		 	  <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>

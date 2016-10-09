@@ -22,11 +22,7 @@ $Fahrzeugzuordnung = ['$Dienststelle' => Array(LHF_1, DLK, LHF_2, RTW_1),
 Echo"<div id='main_funktion' class='border'>
                     <table>";
 
-  $arr_length_j = count($Fahrzeugzuordnung);
-  $arr_length_i =(count($Fahrzeugzuordnung,COUNT_RECURSIVE)-count($Fahrzeugzuordnung));
-  
-  print_r($arr_length_j);
-  print_r($arr_length_i);
+
   
   $aktuellesDatum  = date('d.m.Y');
 		$aktuelleZeit    = date('H:i:s');
@@ -43,90 +39,7 @@ Echo"<div id='main_funktion' class='border'>
 			$Anwesend          = date('d.m.Y', $timestamp);}
   
   
-for ($j = 0; $j < $arr_length_j; $j++) {  
-  for ($i = 0; $i < $arr_length_i; $i++) {
-      
-    switch ($Fahrzeugzuordnung[$j][$i]) {
-        case 'LHF_1':
-        echo"<tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
-            <tr><td class='FunktionAuswahl'>MA_1<td><td class='FunktionAuswahl'>(52)</td></tr>
-            <tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'>(52)</td></tr>
-            <tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'>(54)</td></tr>
-            <tr><td class='border'><td><td class='border'><td></tr>
-            <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'LHF_2':
-            Echo"<tr><td class='FunktionAuswahl'>Stf_2<td><td class='FunktionAuswahl'>(38)</td></tr>
-                <tr><td class='FunktionAuswahl'>MA_2<td><td class='FunktionAuswahl'>(53)</td></tr>
-                <tr><td class='FunktionAuswahl'>Atr_2<td><td class='FunktionAuswahl'>(53)</td></tr>
-                <tr><td class='FunktionAuswahl'>Wtr_2<td><td class='FunktionAuswahl'>(55)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'DLK':
-            Echo"<tr><td class='FunktionAuswahl'>Dlk<td><td class='FunktionAuswahl'>(51)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_1':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_1<td><td class='FunktionAuswahl'>(71)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_2':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_2<td><td class='FunktionAuswahl'>(72)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_3':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_3<td><td class='FunktionAuswahl'>(73)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_4':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_4<td><td class='FunktionAuswahl'>(74)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_5':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_5<td><td class='FunktionAuswahl'>(75)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_6':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_6<td><td class='FunktionAuswahl'>(76)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_7':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_7<td><td class='FunktionAuswahl'>(77)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_8':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_8<td><td class='FunktionAuswahl'>(78)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        
-        case 'RTW_9':
-            Echo"<tr><td class='FunktionAuswahl'>RTW_9<td><td class='FunktionAuswahl'>(79)</td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
-        }
-    }
-}
+
 ECHO"    <table>  
     </div>";		
 		
@@ -228,6 +141,10 @@ Echo"    <table>
     switch ($Fahrzeugzuordnung[$j][$i]) {
         case 'LHF_1':
         echo"
+            <tr><td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+            <option value='.PersNr'>Feesche</option></select><input class='PersInfo' type='submit' value='i'/></td>
+            <td><select class='PersAuswahl'><option value='.PersNr'>Kratzenstein</option>
+            <option value='.PersNr'>Feesche</option></select><input class='PersInfo' type='submit' value='i'/></td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
             break;

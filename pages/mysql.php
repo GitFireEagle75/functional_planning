@@ -9,16 +9,16 @@ class DB {
 	function __construct() {
 		try {
 		self::$_db = new PDO("mysql:host=" . self::$_db_host . ";dbname=" . self::$_db_name,  self::$_db_username , self::$_db_password);
-		} catch(PDOException $e) {
-			echo "Datenbankverbindung gescheitert!";
+              	} catch (PDOException $err){
+			echo "Datenbankverbindung gescheitert!. $err->getMessage() .";
 			die();
 		}
 	}
 	
 	function isUserLoggedIn() {
-		$stmt = self::$_db->prepare("SELECT pers.personal_ID, pers.Personalnummer, rech.Passwort, rech.Session FROM personal AS pers INNER JOIN rechte AS rech ON (pers.Personal_ID = rech.Personal_Personal_ID) WHERE Session=:sid");
+		$stmt = self::$_db->prepare("SELECT pers.personal_ID, pers.Personalnummer, rech.Passwort, rech.Session FROM personal AS pers INNER JOIN rechte AS rech ON (pers.Personal_ID = rech.Personal_Personal_ID) WHERE rechte.Session=:sid");
 		$stmt->bindParam(":sid", session_id());
-		$stmt->execute();
+               	$stmt->execute();
 		
 		if($stmt->rowCount() === 1) {
 			return true;

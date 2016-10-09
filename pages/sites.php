@@ -2,7 +2,7 @@
 switch ($section) {
 	case "Wachbesetzung" :
 		include ("pages/Wachbesetzung.php");
-		break;
+               	break;
 	
 	case "Planung" :
 		include ("pages/Planung.php");

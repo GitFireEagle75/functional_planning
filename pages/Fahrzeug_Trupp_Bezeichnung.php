@@ -19,27 +19,32 @@ $Stützpunkt_2 = $Wachzuordnung[2];
 /*  Array  Construct Cars from FireStation (Database)
  * Array (vehicle allocation) = Array([Station or SubStation][vehicle 1 - 10][Day and Night or Day or Night]],
 */
-$Fahrzeugzuordnung = ['$Dienststelle' => Array('LHF_1', 'DLK', 'LHF_2', 'RTW_1'),
-                      '$Stützpunkt_1' => Array('RTW_1', 'RTW_2'),
-                      '$Stützpunkt_2' => ['RTW_1']];
+$Fahrzeugzuordnung = ['FW_1300' => ['LHF_1', 'DLK', 'LHF_2', 'RTW_1'],
+                      'FW_1310' => ['RTW_1', 'RTW_2'],
+                      'FW_2620' => ['RTW_1']];
+$value = $Fahrzeugzuordnung[0];
 
+                  print_r($value);
+                  
 
 $arr_length_j = count($Fahrzeugzuordnung);
 print_r($arr_length_j);
 print("-");
-//$arr_length_i = count($Fahrzeugzuordnung[1]);
 
-$arr_length_i = max( array_map( 'count',  $Fahrzeugzuordnung ) );
-print_r($arr_length_i);
+for ($a=1; $a < $arr_length_j; $a++){
+  $value =  $Fahrzeugzuordnung[$a];
+  $arr_length_i = count($Fahrzeugzuordnung);  //max( array_map( 'count', $Fahrzeugzuordnung) );
+//print_r($arr_length_i);
+}
 
 print("-");
 
 for ($j =0; $j < $arr_length_j; $j++) {  
-  for ($i =0; $i < $arr_length_i; $i++) {
+ // for ($i =0; $i < $arr_length_i; $i++) {
      
       print_r($j);
-      print_r($i);
+     // print_r($i);
       print("-");
     }
-}
+//}
 

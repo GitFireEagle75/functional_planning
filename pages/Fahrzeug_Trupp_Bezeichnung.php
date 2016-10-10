@@ -19,32 +19,36 @@ $Stützpunkt_2 = $Wachzuordnung[2];
 /*  Array  Construct Cars from FireStation (Database)
  * Array (vehicle allocation) = Array([Station or SubStation][vehicle 1 - 10][Day and Night or Day or Night]],
 */
-$Fahrzeugzuordnung = ['FW_1300' => ['LHF_1', 'DLK', 'LHF_2', 'RTW_1'],
-                      'FW_1310' => ['RTW_1', 'RTW_2'],
-                      'FW_2620' => ['RTW_1']];
-$value = $Fahrzeugzuordnung[0];
-
-                  print_r($value);
-                  
+$Fahrzeugzuordnung = [$Dienststelle => ['LHF_1'=>['T/N'], 'DLK'=>['T/N'], 'LHF_2'=>['T/N'], 'RTW_1'=>['T/N]']],
+                      $Stützpunkt_1 => ['RTW_1'=>['T/N'], 'RTW_2'=>['T']],
+                      $Stützpunkt_2 => ['RTW_1'=>['T/N']]];
 
 $arr_length_j = count($Fahrzeugzuordnung);
 print_r($arr_length_j);
-print("-");
 
-for ($a=1; $a < $arr_length_j; $a++){
-  $value =  $Fahrzeugzuordnung[$a];
-  $arr_length_i = count($Fahrzeugzuordnung);  //max( array_map( 'count', $Fahrzeugzuordnung) );
+foreach($Fahrzeugzuordnung as $Ort => $Fahrzeug){
+    str
+    print "Dienststelle: ($Fahrzeug)[] ";
+    Switch($Ort){
+    case 'LHF_1':
+    Echo"<tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
+        <tr><td class='FunktionAuswahl'>MA_1<td><td class='FunktionAuswahl'>(52)</td></tr>
+	<tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'>(52)</td></tr>
+	<tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'>(54)</td></tr>
+	<tr><td class='border'><td><td class='border'><td></tr>
+    <tr><td class='border'><td><td class='border'><td></tr>";}
+   
+
+//  $arr_length_i = count($Fahrzeugzuordnung);  //max( array_map( 'count', $Fahrzeugzuordnung) );
 //print_r($arr_length_i);
 }
-
-print("-");
 
 for ($j =0; $j < $arr_length_j; $j++) {  
  // for ($i =0; $i < $arr_length_i; $i++) {
      
-      print_r($j);
+      //print_r($j);
      // print_r($i);
-      print("-");
+ 
     }
 //}
 

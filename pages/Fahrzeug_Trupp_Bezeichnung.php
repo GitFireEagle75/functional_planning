@@ -19,33 +19,46 @@ $Stützpunkt_2 = $Wachzuordnung[2];
 /*  Array  Construct Cars from FireStation (Database)
  * Array (vehicle allocation) = Array([Station or SubStation][vehicle 1 - 10][Day and Night or Day or Night]],
 */
-$Fahrzeugzuordnung = [$Dienststelle => ['LHF_1'=>['T/N'], 'DLK'=>['T/N'], 'LHF_2'=>['T/N'], 'RTW_1'=>['T/N]']],
-                     $Stützpunkt_1 => ['RTW_1'=>['T/N'], 'RTW_2'=>['T']],
-                      $Stützpunkt_2 => ['RTW_1'=>['T/N']]];
+$Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Dienst' =>'T/N'],
+                        ['Standort' => $Dienststelle ,'Fahrzeug' => 'DLK', 'Dienst' =>'T/N'],
+                        ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_2','Dienst' =>'T/N'],
+                        ['Standort' => $Dienststelle ,'Fahrzeug' => 'RTW_1', 'Dienst' =>'T/N'],
+                        ['Standort' => $Stützpunkt_1 ,'Fahrzeug' => 'RTW_1','Dienst' =>'T/N'],
+                        ['Standort' => $Stützpunkt_1 ,'Fahrzeug' => 'RTW_2', 'Dienst' =>'T'],
+                        ['Standort' => $Stützpunkt_2 ,'Fahrzeug' => 'RTW_1','Dienst' =>'T/N']];
 
-$arr_length_j = count($Fahrzeugzuordnung);
-//print_r($arr_length_j);
-
-
-foreach($Fahrzeugzuordnung as $Ort){ 
-    echo "Dienststelle:" .$Ort;
-    echo ' ';
-    $Fahrzeuge = array_column($Ort, $arr_length_j);
-            echo $Fahrzeuge;
-           //var_dump($Ort);
-           //var_dump($Fahrzeug);
-    Switch($Fahrzeug){
+  $Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
+  for($i=0; $i < count($Fahrzeuge); $i++){
+    Switch($Fahrzeuge[$i]){        
     case 'LHF_1':
+    Echo "
         
-    Echo "<tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
+        <tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
         <tr><td class='FunktionAuswahl'>MA_1<td><td class='FunktionAuswahl'>(52)</td></tr>
 	<tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'>(52)</td></tr>
 	<tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'>(54)</td></tr>
 	<tr><td class='border'><td><td class='border'><td></tr>
-    <tr><td class='border'><td><td class='border'><td></tr>";}
-
+        <tr><td class='border'><td><td class='border'><td></tr>        
+        ";
+        break;
+    case 'DLK' :    
+    Echo "        
+        <tr><td class='FunktionAuswahl'>Dlk<td><td class='FunktionAuswahl'>(51)</td></tr>
+        <tr><td class='border'><td><td class='border'><td></tr>
+        <tr><td class='border'><td><td class='border'><td></tr>        
+        ";
+        break;
+    case 'LHF_2' :    
+    Echo "    
+        <tr><td class='FunktionAuswahl'>Stf_2<td><td class='FunktionAuswahl'>(38)</td></tr>
+	<tr><td class='FunktionAuswahl'>MA_2<td><td class='FunktionAuswahl'>(53)</td></tr>
+	<tr><td class='FunktionAuswahl'>Atr_2<td><td class='FunktionAuswahl'>(53)</td></tr>
+	<tr><td class='FunktionAuswahl'>Wtr_2<td><td class='FunktionAuswahl'>(55)</td></tr>
+        <tr><td class='border'><td><td class='border'><td></tr>
+        <tr><td class='border'><td><td class='border'><td></tr>
+        ";
+        break;
+    }
 
 }
-
-//}
 

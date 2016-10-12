@@ -48,6 +48,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
         <tr><td class='border'><td><td class='border'><td></tr>        
         ";
         break;
+    
     case 'LHF_2' :    
     Echo "    
         <tr><td class='FunktionAuswahl'>Stf_2<td><td class='FunktionAuswahl'>(38)</td></tr>
@@ -58,7 +59,70 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
         <tr><td class='border'><td><td class='border'><td></tr>
         ";
         break;
-    }
+    
+            
+    case 'RTW_1':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_1<td><td class='FunktionAuswahl'>(71)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
 
+    case 'RTW_2':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_2<td><td class='FunktionAuswahl'>(72)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
+
+    case 'RTW_3':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_3<td><td class='FunktionAuswahl'>(73)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
+
+    case 'RTW_4':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_4<td><td class='FunktionAuswahl'>(74)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
+
+    case 'RTW_5':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_5<td><td class='FunktionAuswahl'>(75)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
+
+    case 'RTW_6':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_6<td><td class='FunktionAuswahl'>(76)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
+
+    case 'RTW_7':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_7<td><td class='FunktionAuswahl'>(77)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
+
+    case 'RTW_8':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_8<td><td class='FunktionAuswahl'>(78)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
+
+    case 'RTW_9':
+        Echo"
+            <tr><td class='FunktionAuswahl'>RTW_9<td><td class='FunktionAuswahl'>(79)</td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>
+            <tr><td class='border'><td><td class='border'><td></tr>";
+        break;
+    }
 }
 

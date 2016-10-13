@@ -27,13 +27,13 @@
 		</div>
 		
                 <?php
-				$aktuellesDatum  = date('d.m.Y');
+		$aktuellesDatum  = date('d.m.Y');
 		$aktuelleZeit    = date('H:i:s');
 		$Zeit_jetzt       = date('d.m.Y.H:i:s');
 		$verglZeitBeginn = date($aktuellesDatum.'.07:30:00');
 		$verglZeitEnde   = date($aktuellesDatum.'.19:30:00');
 		
-		if($Zeit_jetzt < $verglZeitBeginn && $Zeit_jetzt >$verglZeitEnde){
+		if($Zeit_jetzt <$verglZeitBeginn && $Zeit_jetzt >$verglZeitEnde){
 		    $timestamp       = strtotime($aktuellesDatum.' - 1 day');
 		    $Anwesend          = date('d.m.Y', $timestamp);}
 		  
@@ -41,13 +41,13 @@
                     $timestamp       = strtotime($aktuellesDatum.' + 1 day');
                     $Anwesend          = date('d.m.Y', $timestamp);}		
 		
-		 if($Zeit_jetzt > $verglZeitBeginn && $Zeit_jetzt < $verglZeitEnde)
+		 if($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt <$verglZeitEnde)
                         {Echo"<div id='main_plan_left' class='border'>
 		 	<label>Tagdienst     </label><input class='Datum' type='date' name='Datum_links' value= ".$aktuellesDatum."> 
 		        <!-- Aufbau Tagdienst Fahrzeuge-->				
 		 	<table>";
 
-		 	Echo"<?php include('pages/Fahrzeuge.php');?>";
+		 	include('pages/Fahrzeuge.php');
 
 		 	Echo"</table>		
 		 	</div>";

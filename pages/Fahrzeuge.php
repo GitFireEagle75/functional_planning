@@ -30,146 +30,214 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
 
   
 $Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
-  for($i=0; $i < count($Fahrzeuge); $i++){
+  for($i=0; $i <count($Fahrzeuge); $i++){
     Switch($Fahrzeuge[$i]){ 
         case 'LHF_1':
-        echo"
-            <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-            <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-            <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-            <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-            <tr><td class='border'><td><td class='border'><td></tr>
-            <tr><td class='border'><td><td class='border'><td></tr>";
-            break;
+            echo"
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
+                break;
         
         case 'LHF_2':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-            <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-            <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-            <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'DLK':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
+
             break;
         
         case 'RTW_1':
             Echo"
-                <tr><td><label class='PersAuswahl'>PersonX</label><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'RTW_2':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'RTW_3':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'RTW_4':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'RTW_5':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'RTW_6':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'RTW_7':
             Echo"
-                <tr><td><label class='PersAuswahl'>PersonX</label><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'RTW_8':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
         
         case 'RTW_9':
             Echo"
-                <tr><td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            <td><select class='PersAuswahl'><option value='.PersNr'>PersonX</option></select><input class='PersInfo' type='submit' value='i'/></td>
-            </tr>
-                <tr><td class='border'><td><td class='border'><td></tr>
-                <tr><td class='border'><td><td class='border'><td></tr>";
+                <tr>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";
             break;
+            
         }
     }
 ?>

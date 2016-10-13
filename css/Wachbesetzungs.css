@@ -1,3 +1,12 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13.10.2016, 06:26:09
+    Author     : AdminNova
+*/
 @charset "utf-8";
 /**
  * @link   
@@ -202,15 +211,15 @@ div#main_funktion{
 	border-radius: 10px;*/
 	margin: 2px 2px 2px 0px;
 	padding: 10px 10px 10px 10px;
-	-webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+	  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #main_funktion table{
 	min-width: 100%;
-	height: 22px;
-	font-size: 13px;
+/*	height:22px;*/
+	font-size: 12px;
 	background-color: #dadada;
 	border: 1px solid black;
 	border-radius: 10px;
@@ -219,14 +228,8 @@ div#main_funktion{
 }
 
 #main_funktion th{
-	background-color: #ffc082;	
-}
-
-#main_funktion td{
-        text-align: center;
-        position:   relative;
-        font-size:  13px;
-        line-height: 22px;
+	background-color: #ffc082;
+	
 }
 
 div#main_plan_left{
@@ -238,15 +241,14 @@ div#main_plan_left{
 	min-height: 500px;
 	margin: 2px 2px 2px 2px;
 	padding: 10px 10px 10px 10px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-         box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #main_plan_left table{
-	min-width: 100%;
-	height:30px;
-        font-size: 13px;
+	width: 100%;
+	height:22px;
 	background-color: #dadada;
 	border: 1px solid black;
 	border-radius: 10px;
@@ -255,10 +257,13 @@ div#main_plan_left{
 }
 
 #main_plan_left td{
+	width: 33%;
         text-align: center;
-        position:   relative;
-        font-size:  13px;
+        position: relative;
+        font-size:13px;
 }
+
+
 
 div#main_plan_right{
 	background-color: #E9E9E9;
@@ -269,49 +274,56 @@ div#main_plan_right{
 	min-height: 500px;
 	margin: 2px 0px 2px 2px;
 	padding: 10px 10px 10px 10px;
-	-webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+	  -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 #main_plan_right table{
 	min-width: 100%;
-	height:    22px;
-        font-size: 13px;
+	height:22px;
 	background-color: #dadada;
 	border: 1px solid black;
 	border-radius: 10px;
 	margin: 2px 2px 2px 2px;
 	padding: 10px 10px 10px 10px;
+
 }
+
 #main_plan_right td{
-        text-align: center;
-        position:   relative;
-        font-size:  13px;
+		width: 33%;
 }
+
 /**
  * @section Footer
  */
 body>footer {
-	width:  980px;
-        color : #7F6063;
+	width: 980px; color : #7F6063;
 	background-color: #feefbc;
 	padding: 24px 450px;
 	font-family: Tahoma, Arial, sans-serif;
 	font-size: .9em;
 	clear: both;
+	color: #7F6063; background-color : #feefbc; padding : 24px 450px;
+	font-family : Tahoma, Arial, sans-serif; font-size : .9em; clear : both;
 	margin: 24px 0 0 0;
 }
 
 body>footer p {
-	width:  980px;
+	width: 980px;
 	margin: 0 auto;
 }
+
 /*------------------------------------------------------------------------------------------------------*/
+
 .border {
-        border-bottom: 1px dotted #000;
-        text-align: center;
-        }
+	border-bottom: 1px dotted #000;
+    text-align: center;
+    }
+    
+.label{
+    float: right;    
+    }   
     
 .Datum {
 	text-align: center;
@@ -319,24 +331,25 @@ body>footer p {
 
 .PersInfo{
 	text-align: center;
-	position: relative;
-	/*width: 100%;*/
-        /*min-width: 6%;
-        max-width: 6%;*/
-        
-        }
+	 position: relative;
+	 width: 16%;
+}
 
 .PersAuswahl{
-        text-align: center;
-        font-size:  13px;
-        min-width:  33%; 
-        height:     30px;       
-        }
+  text-align: center;
+  font-size:13px;
+  position: relative;
+  width: 80%; 
+  height: 29.9px;
+	
+}
 
 .FunktionAuswahl{
-        text-align: center;
-        font-size:  13px;
-        min-width:  80%;
-        height:     30px;
-        
-        }
+  text-align: center;
+  /*position: relative;*/
+  font-size:13px;
+  width: 80%;
+  /*weight: 200px;*/
+  height: 30px;
+	
+}

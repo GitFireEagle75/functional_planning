@@ -31,30 +31,32 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
   for($i=0; $i < count($Fahrzeuge); $i++){
     Switch($Fahrzeuge[$i]){        
     case 'LHF_1':
-    Echo "
-        
+    Echo "        
         <tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
-        <tr><td class='FunktionAuswahl'>MA_1<td><td class='FunktionAuswahl'>(52)</td></tr>
-	<tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'>(52)</td></tr>
-	<tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'>(54)</td></tr>
+        <tr><td class='FunktionAuswahl'>MA_1<td><td  class='FunktionAuswahl'></label><label>(52)</lable></td></tr>
+	<tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'></label><label>(52)</lable></td></tr>
+	<tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'></label><label>(54)</lable></td></tr>
 	<tr><td class='border'><td><td class='border'><td></tr>
         <tr><td class='border'><td><td class='border'><td></tr>        
         ";
         break;
+    
     case 'DLK' :    
-    Echo "        
-        <tr><td class='FunktionAuswahl'>Dlk<td><td class='FunktionAuswahl'>(51)</td></tr>
+    Echo "
+        <tr><td class='FunktionAuswahl'>Dlk<td><td class='FunktionAuswahl'>(51)</td></tr>        
+        
         <tr><td class='border'><td><td class='border'><td></tr>
         <tr><td class='border'><td><td class='border'><td></tr>        
         ";
         break;
     
     case 'LHF_2' :    
-    Echo "    
+    Echo "
         <tr><td class='FunktionAuswahl'>Stf_2<td><td class='FunktionAuswahl'>(38)</td></tr>
-	<tr><td class='FunktionAuswahl'>MA_2<td><td class='FunktionAuswahl'>(53)</td></tr>
-	<tr><td class='FunktionAuswahl'>Atr_2<td><td class='FunktionAuswahl'>(53)</td></tr>
-	<tr><td class='FunktionAuswahl'>Wtr_2<td><td class='FunktionAuswahl'>(55)</td></tr>
+        <tr><td class='FunktionAuswahl'>MA_2<td><td class='FunktionAuswahl'>(53)</td></tr>
+        <tr><td class='FunktionAuswahl'>Atr_2<td><td class='FunktionAuswahl'>(53)</td></tr>
+        <tr><td class='FunktionAuswahl'>Wtr_2<td><td class='FunktionAuswahl'>(55)</td></tr>
+        
         <tr><td class='border'><td><td class='border'><td></tr>
         <tr><td class='border'><td><td class='border'><td></tr>
         ";
@@ -64,6 +66,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_1':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_1<td><td class='FunktionAuswahl'>(71)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
@@ -71,6 +74,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_2':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_2<td><td class='FunktionAuswahl'>(72)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
@@ -78,6 +82,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_3':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_3<td><td class='FunktionAuswahl'>(73)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
@@ -85,6 +90,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_4':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_4<td><td class='FunktionAuswahl'>(74)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
@@ -92,6 +98,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_5':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_5<td><td class='FunktionAuswahl'>(75)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
@@ -99,6 +106,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_6':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_6<td><td class='FunktionAuswahl'>(76)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
@@ -106,6 +114,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_7':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_7<td><td class='FunktionAuswahl'>(77)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
@@ -113,6 +122,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_8':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_8<td><td class='FunktionAuswahl'>(78)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
@@ -120,6 +130,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'RTW_9':
         Echo"
             <tr><td class='FunktionAuswahl'>RTW_9<td><td class='FunktionAuswahl'>(79)</td></tr>
+            
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;

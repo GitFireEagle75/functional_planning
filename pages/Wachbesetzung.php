@@ -39,13 +39,19 @@
 		  
 		else{ 
                     $timestamp       = strtotime($aktuellesDatum.' + 1 day');
-                    $Anwesend          = date('d.m.Y', $timestamp);}		
+                    $Anwesend          = date('d.m.Y', $timestamp);}
+ 
+                    
 		
-		 if($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt <$verglZeitEnde)
-                        {Echo"<div id='main_plan_left' class='border'>
+		 if($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt <$verglZeitEnde){                       
+                        
+                        Echo"<div id='main_plan_left' class='border'>
 		 	<label>Tagdienst     </label><input class='Datum' type='date' name='Datum_links' value= ".$aktuellesDatum."> 
 		        <!-- Aufbau Tagdienst Fahrzeuge-->				
 		 	<table>";
+                        
+                        $DivDienst = 'main_plan_left';
+                        $DienstZeit = 'Tagdienst';                        
 
 		 	include('pages/Fahrzeuge.php');
 
@@ -56,18 +62,22 @@
 		 	<label>Nachtdienst     </label><input class='Datum' type='date' name='Datum_rechts' value= ".$aktuellesDatum.">
 		 	<!-- Aufbau Nachtdienst	Fahrzeuge-->
 		 	<table>";
-
+                        
+                        $DivDienst = 'main_plan_right';
+                        $DienstZeit = 'Nachtdienst';
 		        include('pages/Fahrzeuge.php');
 
 		 	Echo "</table>
 		 	</div>";}		 
 
-		 else{  
-		 	Echo "<div id='main_plan_left' class='border'>
+		    else{ 
+                        Echo "<div id='main_plan_left' class='border'>
 		 	<label>Nachtdienst   </label><input class='Datum' type='date' name='Datum_links' value= ".$aktuellesDatum.">
 		        <!--Aufbau Nachtdienst Fahrzeuge-->
 		 	<table>";
                         
+                        $DivDienst = 'main_plan_left';
+                        $DienstZeit = 'Nachtdienst';                        
                         include('pages/Fahrzeuge.php');
  
 		 	echo "</table>
@@ -77,7 +87,10 @@
 		 	<label>Tagdienst       </label><input class='Datum' type='date' name='Datum_rechts' value= ".$Anwesend.">
 		        <!--Aufbau Tagdienst Fahrzeuge-->
 		 	<table>";
-
+                        
+                        $DivDienst = 'main_plan_right';
+                        $DienstZeit = 'Tagdienst';
+                        
 		 	include('pages/Fahrzeuge.php');
                         
 		 	Echo"</table>

@@ -9,6 +9,7 @@
  /* Array  Construct Station and Sub Station (Database)
  *  Array(Station and Sub Station) = [Station][SubStation 1][SubStation 2][SubStation 3][SubStation 4];
  */
+
 $Wachzuordnung = Array('FW_1300','FW_1310','FW_2620');
 
 $Dienststelle = $Wachzuordnung[0];
@@ -30,6 +31,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
 
   
 $Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
+$Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
   for($i=0; $i <count($Fahrzeuge); $i++){
     Switch($Fahrzeuge[$i]){ 
         case 'LHF_1':
@@ -104,6 +106,7 @@ $Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
             break;
         
         case 'RTW_1':
+            if($Dienste[$i] == 'T/N'){
             Echo"
                 <tr>
                 <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
@@ -115,10 +118,25 @@ $Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
-                </tr>";
+            </tr>";}
+            elseif($Dienste[$i] == 'T') {
+                
+            Echo"
+                <tr><td class='PersAuswahl'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td></tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>
+                <tr>
+                <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                </tr>";                
+            }else{
+                Echo"Kein Dienst";
+                
+            }
             break;
         
         case 'RTW_2':
+            if($Dienste[$i] == 'T/N'){
             Echo"
                 <tr>
                 <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
@@ -130,7 +148,56 @@ $Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
-                </tr>";
+            </tr>";}
+            elseif ($Dienste[$i] == 'T') {
+                if ($DivDienst == 'main_plan_left' && $DienstZeit == 'Tagdienst'){
+                    Echo"
+                        <tr>
+                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        </tr>
+                        <tr>
+                        <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                        </tr>
+                        <tr>
+                        <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                    </tr>";
+                }elseif ($DivDienst == 'main_plan_left' && $DienstZeit == 'Nachtdienst') {
+                    Echo"
+                        <tr><td class='PersAuswahl'>&nbsp;</td><td class='PersInfo'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td><td class='PersInfo'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td><td class='PersInfo'>&nbsp;</td></tr>
+                        <tr>
+                        <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                        </tr>
+                        <tr>
+                        <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                    </tr>";
+                }elseif ($DivDienst == 'main_plan_right' && $DienstZeit == 'Nachtdienst') {
+                    Echo"
+                        <tr><td class='PersAuswahl'>&nbsp;</td><td class='PersInfo'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td><td class='PersInfo'>&nbsp;</td><td class='PersAuswahl'>&nbsp;</td><td class='PersInfo'>&nbsp;</td></tr>
+                        <tr>
+                        <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                        </tr>
+                        <tr>
+                        <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                    </tr>";
+                }else{
+                    Echo"
+                        <tr>
+                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        </tr>
+                        <tr>
+                        <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                        </tr>
+                        <tr>
+                        <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
+                    </tr>";                    
+                }
+            }else{
+                Echo"Kein Dienst";                
+            }
             break;
         
         case 'RTW_3':

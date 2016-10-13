@@ -33,9 +33,9 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
     case 'LHF_1':
     Echo "        
         <tr><td class='FunktionAuswahl'>Stf_1<td><td class='FunktionAuswahl'>(37)</td></tr>
-        <tr><td class='FunktionAuswahl'>MA_1<td><td  class='FunktionAuswahl'></label><label>(52)</lable></td></tr>
-	<tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'></label><label>(52)</lable></td></tr>
-	<tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'></label><label>(54)</lable></td></tr>
+        <tr><td class='FunktionAuswahl'>MA_1 <td><td  class='FunktionAuswahl'>(52)</td></tr>
+	<tr><td class='FunktionAuswahl'>Atr_1<td><td class='FunktionAuswahl'>(52)</td></tr>
+	<tr><td class='FunktionAuswahl'>Wtr_1<td><td class='FunktionAuswahl'>(54)</td></tr>
 	<tr><td class='border'><td><td class='border'><td></tr>
         <tr><td class='border'><td><td class='border'><td></tr>        
         ";

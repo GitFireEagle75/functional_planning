@@ -65,22 +65,22 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'LHF_2':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -93,8 +93,8 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'DLK':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -109,9 +109,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
             if($Dienste[$i] == 'T/N'){
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -139,9 +139,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
             if($Dienste[$i] == 'T/N'){
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -153,9 +153,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
                 if ($DivDienst == 'main_plan_left' && $DienstZeit == 'Tagdienst'){
                     Echo"
                         <tr>
-                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                         </tr>
                         <tr>
                         <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -184,9 +184,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
                 }else{
                     Echo"
                         <tr>
-                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                        <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                        <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                         </tr>
                         <tr>
                         <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -203,9 +203,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'RTW_3':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -218,9 +218,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'RTW_4':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -233,9 +233,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'RTW_5':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -248,9 +248,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'RTW_6':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -263,9 +263,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'RTW_7':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -278,9 +278,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'RTW_8':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>
@@ -293,9 +293,9 @@ $Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
         case 'RTW_9':
             Echo"
                 <tr>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
-                <td class='PersAuswahl' value='.PersNr'>Kratzenstein</td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
+                <td class='PersAuswahl' value='.PersNr'></td><td><input class='PersInfo' type='submit' value='i'/></td>
                 </tr>
                 <tr>
                 <td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td><td class='border'></td>

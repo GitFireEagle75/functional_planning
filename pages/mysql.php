@@ -16,7 +16,8 @@ class DB {
 	}
 	
 	function isUserLoggedIn() {
-		$stmt = self::$_db->prepare("SELECT pers.personal_ID, pers.Personalnummer, rech.Passwort, rech.Session FROM personal AS pers INNER JOIN rechte AS rech ON (pers.Personal_ID = rech.Personal_Personal_ID) WHERE rechte.Session=:sid");
+                //error_reporting(E_STRICT);//Fehlerausgabe unterdrückt
+		$stmt = self::$_db->prepare("SELECT pers.Personal_ID, pers.Personalnummer, rech.Passwort, rech.Session FROM personal AS pers INNER JOIN rechte AS rech ON (pers.Personal_ID = rech.Personal_Personal_ID) WHERE rech.Session=:sid");
 		$stmt->bindParam(":sid", session_id());
                	$stmt->execute();
 		
@@ -28,7 +29,7 @@ class DB {
 	}
 	
 	function login($userPersNr, $pw) {
-		$stmt = self::$_db->prepare("SELECT pers.personal_ID, Pers.Personalnummer, rech.Passwort, rech.Session FROM personal AS pers inner join rechte AS rech ON (pers.Personal_ID = rech.Personal_Personal_ID) WHERE  persnr=:persnr AND passwort=:pw");
+		$stmt = self::$_db->prepare("SELECT pers.personal_ID, ers.Personalnummer, rech.Passwort, rech.Session FROM personal AS pers inner join rechte AS rech ON (pers.Personal_ID = rech.Personal_Personal_ID) WHERE  persnr=:persnr AND passwort=:pw");
 		
 		$stmt->bindParam(":persnr", $userPersNr);
 		$stmt->bindParam(":pw", $pw);

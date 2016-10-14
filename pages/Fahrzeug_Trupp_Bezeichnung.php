@@ -28,6 +28,7 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
                         ['Standort' => $Stützpunkt_2 ,'Fahrzeug' => 'RTW_1','Dienst' =>'T/N']];
 
   $Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
+  $Gebäude = array_column($Fahrzeugzuordnung, 'Standort');
   for($i=0; $i < count($Fahrzeuge); $i++){
     Switch($Fahrzeuge[$i]){        
     case 'LHF_1':
@@ -63,73 +64,82 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
         break;
     
             
-    case 'RTW_1':
+    case 'RTW_1':        
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_1<td><td class='FunktionAuswahl'>(71)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(71)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
 
     case 'RTW_2':
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_2<td><td class='FunktionAuswahl'>(72)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(72)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
 
     case 'RTW_3':
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_3<td><td class='FunktionAuswahl'>(73)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(73)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
 
     case 'RTW_4':
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_4<td><td class='FunktionAuswahl'>(74)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(74)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
 
     case 'RTW_5':
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_5<td><td class='FunktionAuswahl'>(75)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(75)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
 
     case 'RTW_6':
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_6<td><td class='FunktionAuswahl'>(76)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(76)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
 
     case 'RTW_7':
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_7<td><td class='FunktionAuswahl'>(77)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(77)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
 
     case 'RTW_8':
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_8<td><td class='FunktionAuswahl'>(78)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(78)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";
         break;
 
     case 'RTW_9':
+        $Standort = substr($Gebäude[$i], 3);
         Echo"
-            <tr><td class='FunktionAuswahl'>RTW_9<td><td class='FunktionAuswahl'>(79)</td></tr>
+            <tr><td class='FunktionAuswahl'>RTW_$Standort<td><td class='FunktionAuswahl'>(79)</td></tr>
             
             <tr><td class='border'><td><td class='border'><td></tr>
             <tr><td class='border'><td><td class='border'><td></tr>";

@@ -11,14 +11,11 @@
  			<option value='2'>FW_2200</option>
  			<option value='3'>FW_2600</option>		
  		</select> <input type='submit' name='DienststellenZuordnung' value='Auswahl'>
-		
-		
+				
 		</label>
 		</form>
-		</div>
-		
-		
-		
+		</div>	
+				
 		<div id="main_funktion" class="border">
 		<label><span>Funktionen</span></label>
 		<table>		
@@ -29,24 +26,38 @@
                 <?php
 		$aktuellesDatum  = date('d.m.Y');
 		$aktuelleZeit    = date('H:i:s');
-		$Zeit_jetzt       = date('d.m.Y.H:i:s');
+                $timestamp       = strtotime($aktuellesDatum.' - 1 day');
+                $Datum_gestern   = date('d.m.Y', $timestamp);
+                $Datum_morgen   = strtotime(date($aktuellesDatum.' + 1 day'));
+		$Zeit_jetzt      = date('d.m.Y.H:i:s');
 		$verglZeitBeginn = date($aktuellesDatum.'.07:30:00');
 		$verglZeitEnde   = date($aktuellesDatum.'.19:30:00');
 		
-		if($Zeit_jetzt <$verglZeitBeginn && $Zeit_jetzt >$verglZeitEnde){
-		    $timestamp       = strtotime($aktuellesDatum.' - 1 day');
-		    $Anwesend          = date('d.m.Y', $timestamp);}
-		  
-		else{ 
-                    $timestamp       = strtotime($aktuellesDatum.' + 1 day');
-                    $Anwesend          = date('d.m.Y', $timestamp);}
- 
+		if($Zeit_jetzt <$verglZeitBeginn && $Zeit_jetzt >$Datum_gestern) {
+                    $timestamp       = strtotime($aktuellesDatum.' - 1 day');
+		    $Anwesend        = date('d.m.Y', $timestamp);
+                    $timestamp       = strtotime($aktuellesDatum);
+                    $Ablösung        = date('d.m.Y', $timestamp); 
+                                        
+                }elseif($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt < $verglZeitEnde){
+		    $Anwesend        = $aktuellesDatum;
+                    $Ablösung        = $aktuellesDatum; 
                     
+                }                                		  
+		elseif($Zeit_jetzt >$verglZeitEnde){ 
+                    $timestamp       = strtotime($aktuellesDatum);
+		    $Anwesend        = date('d.m.Y', $timestamp);
+                    $timestamp       = strtotime($aktuellesDatum.' + 1 day');
+                    $Ablösung        = date('d.m.Y', $timestamp);                    
+                }                
+                else{
+                    
+                }                    
 		
 		 if($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt <$verglZeitEnde){                       
                         
                         Echo"<div id='main_plan_left' class='border'>
-		 	<label>Tagdienst     </label><input class='Datum' type='date' name='Datum_links' value= ".$aktuellesDatum."> 
+		 	<label>Tagdienst     </label><input class='Datum' type='date' name='Datum_links' value= ".$Anwesend."> 
 		        <!-- Aufbau Tagdienst Fahrzeuge-->				
 		 	<table>";
                         
@@ -59,7 +70,7 @@
 		 	</div>";
 		 
 		        Echo "<div id='main_plan_right' class='border'> 
-		 	<label>Nachtdienst     </label><input class='Datum' type='date' name='Datum_rechts' value= ".$aktuellesDatum.">
+		 	<label>Nachtdienst     </label><input class='Datum' type='date' name='Datum_rechts' value= ".$Ablösung.">
 		 	<!-- Aufbau Nachtdienst	Fahrzeuge-->
 		 	<table>";
                         
@@ -72,7 +83,7 @@
 
 		    else{ 
                         Echo "<div id='main_plan_left' class='border'>
-		 	<label>Nachtdienst   </label><input class='Datum' type='date' name='Datum_links' value= ".$aktuellesDatum.">
+		 	<label>Nachtdienst   </label><input class='Datum' type='date' name='Datum_links' value= ".$Anwesend.">
 		        <!--Aufbau Nachtdienst Fahrzeuge-->
 		 	<table>";
                         
@@ -84,7 +95,7 @@
 		 	</div>";
 		
 		        Echo"<div id='main_plan_right' class='border'>
-		 	<label>Tagdienst       </label><input class='Datum' type='date' name='Datum_rechts' value= ".$Anwesend.">
+		 	<label>Tagdienst       </label><input class='Datum' type='date' name='Datum_rechts' value= ".$Ablösung.">
 		        <!--Aufbau Tagdienst Fahrzeuge-->
 		 	<table>";
                         

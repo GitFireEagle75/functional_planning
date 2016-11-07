@@ -27,8 +27,9 @@ $Fahrzeugzuordnung = [  ['Standort' => $Dienststelle ,'Fahrzeug' => 'LHF_1','Die
                         ['Standort' => $Stützpunkt_1 ,'Fahrzeug' => 'RTW_2', 'Dienst' =>'T'],
                         ['Standort' => $Stützpunkt_2 ,'Fahrzeug' => 'RTW_1','Dienst' =>'T/N']];
 
-  $Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
-  $Gebäude = array_column($Fahrzeugzuordnung, 'Standort');
+$Fahrzeuge = array_column($Fahrzeugzuordnung, 'Fahrzeug');
+$Dienste = array_column($Fahrzeugzuordnung, 'Dienst');
+$Gebäude = array_column($Fahrzeugzuordnung, 'Standort');
   for($i=0; $i < count($Fahrzeuge); $i++){
     Switch($Fahrzeuge[$i]){        
     case 'LHF_1':

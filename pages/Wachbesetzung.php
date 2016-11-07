@@ -4,13 +4,12 @@
  
 		<div id="main_head">
 		<form action="" method="post">
-		<label style='display: block; line-height: 24px; line-width: 120px'>Dienststelle:			
+		<label style='display: block; line-height: 24px; width: 120px'>Dienststelle:			
 		<select id='Dienststelle' name='Dienststelle'>                          
  			<option value='0'></option>
 			<option value='1'>FW_1300</option>
  			<option value='2'>FW_2200</option>
- 			<option value='3'>FW_2600</option>		
- 		</select> <input type='submit' name='DienststellenZuordnung' value='Auswahl'>
+ 			<option value='3'>FW_2600</option></select><input type='submit' name='DienststellenZuordnung' value='Auswahl'>
 				
 		</label>
 		</form>
@@ -19,7 +18,7 @@
 		<div id="main_funktion" class="border">
 		<label><span>Funktionen</span></label>
 		<table>		
-                    <?php include("pages/Fahrzeug_Trupp_Bezeichnung.php");?>
+                    <?php include("./pages/Fahrzeug_Trupp_Bezeichnung.php");?>
 		</table>
 		</div>
 		
@@ -30,14 +29,14 @@
                 $Datum_gestern   = date('d.m.Y', $timestamp);
                 $Datum_morgen   = strtotime(date($aktuellesDatum.' + 1 day'));
 		$Zeit_jetzt      = date('d.m.Y.H:i:s');
-		$verglZeitBeginn = date($aktuellesDatum.'.07:30:00');
+		$verglZeitBeginn = date($aktuellesDatum.'.07:30:00');                
 		$verglZeitEnde   = date($aktuellesDatum.'.19:30:00');
 		
 		if($Zeit_jetzt <$verglZeitBeginn && $Zeit_jetzt >$Datum_gestern) {
                     $timestamp       = strtotime($aktuellesDatum.' - 1 day');
 		    $Anwesend        = date('d.m.Y', $timestamp);
                     $timestamp       = strtotime($aktuellesDatum);
-                    $Ablösung        = date('d.m.Y', $timestamp); 
+                    $Ablösung        = date('d.m.Y', $timestamp);
                                         
                 }elseif($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt < $verglZeitEnde){
 		    $Anwesend        = $aktuellesDatum;
@@ -57,52 +56,62 @@
 		 if($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt <$verglZeitEnde){                       
                         
                         Echo"<div id='main_plan_left' class='border'>
-		 	<label>Tagdienst     </label><input class='Datum' type='date' name='Datum_links' value= ".$Anwesend."> 
+		 	<label>Tagdienst     </label><input class='Datum' name='Datum_links' value= ".$Anwesend."> 
 		        <!-- Aufbau Tagdienst Fahrzeuge-->				
 		 	<table>";
                         
                         $DivDienst = 'main_plan_left';
-                        $DienstZeit = 'Tagdienst';                        
+                        $DienstZeit = 'Tagdienst';  
+                        $PlaDat = $Anwesend;
+                        $var_Zeit = "T";
 
-		 	include('pages/Fahrzeuge.php');
+		 	include('./pages/Fahrzeuge.php');
 
 		 	Echo"</table>		
 		 	</div>";
 		 
 		        Echo "<div id='main_plan_right' class='border'> 
-		 	<label>Nachtdienst     </label><input class='Datum' type='date' name='Datum_rechts' value= ".$Ablösung.">
+		 	<label>Nachtdienst     </label><input class='Datum' name='Datum_rechts' value= ".$Ablösung.">
 		 	<!-- Aufbau Nachtdienst	Fahrzeuge-->
 		 	<table>";
                         
                         $DivDienst = 'main_plan_right';
                         $DienstZeit = 'Nachtdienst';
-		        include('pages/Fahrzeuge.php');
+                        $PlaDat = $Ablösung;
+                        $var_Zeit = "N";
+                        
+		        include('./pages/Fahrzeuge.php');
 
 		 	Echo "</table>
 		 	</div>";}		 
 
 		    else{ 
                         Echo "<div id='main_plan_left' class='border'>
-		 	<label>Nachtdienst   </label><input class='Datum' type='date' name='Datum_links' value= ".$Anwesend.">
+		 	<label>Nachtdienst   </label><input class='Datum' name='Datum_links' value= ".$Anwesend.">
 		        <!--Aufbau Nachtdienst Fahrzeuge-->
 		 	<table>";
                         
                         $DivDienst = 'main_plan_left';
-                        $DienstZeit = 'Nachtdienst';                        
-                        include('pages/Fahrzeuge.php');
+                        $DienstZeit = 'Nachtdienst'; 
+                        $PlaDat = $Anwesend;
+                        $var_Zeit = "N";
+                        
+                        include('./pages/Fahrzeuge.php');
  
 		 	echo "</table>
 		 	</div>";
 		
 		        Echo"<div id='main_plan_right' class='border'>
-		 	<label>Tagdienst       </label><input class='Datum' type='date' name='Datum_rechts' value= ".$Ablösung.">
+		 	<label>Tagdienst       </label><input class='Datum' name='Datum_rechts' value= ".$Ablösung.">
 		        <!--Aufbau Tagdienst Fahrzeuge-->
 		 	<table>";
                         
                         $DivDienst = 'main_plan_right';
                         $DienstZeit = 'Tagdienst';
+                        $PlaDat = $Ablösung;
+                        $var_Zeit = "T";
                         
-		 	include('pages/Fahrzeuge.php');
+		 	include('./pages/Fahrzeuge.php');
                         
 		 	Echo"</table>
 		 	</div>";}

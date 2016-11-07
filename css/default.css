@@ -138,7 +138,7 @@ nav ul li {
 
 nav ul a, nav ul strong {
 	color: #352545;
-	background: #FBFBFB url(images/nav_bg.gif) bottom left repeat-x;
+	background: #FBFBFB url(../image/nav_bg.gif) bottom left repeat-x;
 	display: block;
 	padding: .8em;
 	text-transform: uppercase;
@@ -148,7 +148,7 @@ nav ul a, nav ul strong {
 
 nav ul a:hover, nav ul a:focus, nav ul a:active, nav ul strong {
 	color: white;
-	background: #FE0018 url(images/nav_bg_hover1.gif) bottom left repeat-x;
+	background: #FE0018 url(../image/nav_bg_hover.gif) bottom left repeat-x;
 }
 
 /**
@@ -248,7 +248,7 @@ div#main_plan_left{
 	min-width: 100%;
 	height:30px;
         font-size: 13px;
-	background-color: #dadada;
+	/*background-color: #dadada;*/
 	border: 1px solid black;
 	border-radius: 10px;
 	margin: 2px 2px 2px 2px;
@@ -280,7 +280,7 @@ div#main_plan_right{
 	height:    22px;
         font-size: 13px;
         height:30px;
-	background-color: #dadada;
+	/* background-color: #dadada;*/
 	border: 1px solid black;
 	border-radius: 10px;
 	margin: 2px 2px 2px 2px;
@@ -321,7 +321,7 @@ body>footer p {
 
 .PersInfo{
 	text-align: center;
-	position: relative;
+	position: right;
 	/*width: 100%;*/
         /*min-width: 6%;
         max-width: 6%;*/
@@ -329,10 +329,19 @@ body>footer p {
         }
 
 .PersAuswahl{
+        background-color: #dadada;
         text-align: center;
         font-size:  13px;
         min-width:  33%; 
-        height:     30px;       
+        height:     30px;
+        padding-left: 90px;
+        }
+        
+.PersOhneAuswahl{
+        text-align: center;
+        min-width:  33%; 
+        height:     30px;
+        padding-left: 90px;
         }
 
 .FunktionAuswahl{

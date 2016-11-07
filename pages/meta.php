@@ -9,5 +9,5 @@
 	content="Projekt Funktionsbesetzung alle Wachen" />
 <meta name="language" content="de" />
 
-<link rel="stylesheet" href="css/default.css" type="text/css"
+<link rel="stylesheet" href="./css/default.css" type="text/css"
 	media="screen, projection">

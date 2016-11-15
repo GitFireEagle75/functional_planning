@@ -5,7 +5,8 @@
 		<div id="main_head">
 		<form action="" method="post">
 		<label style='display: block; line-height: 24px; width: 120px'>Dienststelle:			
-		<select id='Dienststelle' name='Dienststelle'>                          
+		// Hier muss noch mit Javascript die Auflistung der Wachen aus der DB erstellt werden
+                    <select id='Dienststelle' name='Dienststelle'>                    
  			<option value='0'></option>
 			<option value='1'>FW_1300</option>
  			<option value='2'>FW_2200</option>
@@ -17,13 +18,19 @@
 				
 		<div id="main_funktion" class="border">
 		<label><span>Funktionen</span></label>
-		<table>		
+		<table>
+                    
+    <!-- Auflistung der Fahrzeugfunktionen zBsp: Staffelführer Maschinist Atrupp usw aus der Datenbank -->
+    
                     <?php include("./pages/Fahrzeug_Trupp_Bezeichnung.php");?>
+    
 		</table>
 		</div>
 		
                 <?php
-		$aktuellesDatum  = date('d.m.Y');
+    /*erforderliche Variablen um in der Site die Position der Tag oder Nacht Funktionen anzuzeigen*/
+
+                $aktuellesDatum  = date('d.m.Y');
 		$aktuelleZeit    = date('H:i:s');
                 $timestamp       = strtotime($aktuellesDatum.' - 1 day');
                 $Datum_gestern   = date('d.m.Y', $timestamp);
@@ -31,8 +38,10 @@
 		$Zeit_jetzt      = date('d.m.Y.H:i:s');
 		$verglZeitBeginn = date($aktuellesDatum.'.07:30:00');                
 		$verglZeitEnde   = date($aktuellesDatum.'.19:30:00');
-		
-		if($Zeit_jetzt <$verglZeitBeginn && $Zeit_jetzt >$Datum_gestern) {
+                
+    /*Ermitteln des Datum für Anwesende und Ablösende Besetzung Tag/Nacht*/
+
+                if($Zeit_jetzt <$verglZeitBeginn && $Zeit_jetzt >$Datum_gestern) {
                     $timestamp       = strtotime($aktuellesDatum.' - 1 day');
 		    $Anwesend        = date('d.m.Y', $timestamp);
                     $timestamp       = strtotime($aktuellesDatum);
@@ -51,9 +60,11 @@
                 }                
                 else{
                     
-                }                    
-		
-		 if($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt <$verglZeitEnde){                       
+                }
+                
+    /*Prüfen ob der Tag/Nacht links oder rechts in der Anzeige erstellt wird*/
+
+                if($Zeit_jetzt >$verglZeitBeginn && $Zeit_jetzt <$verglZeitEnde){                       
                         
                         Echo"<div id='main_plan_left' class='border'>
 		 	<label>Tagdienst     </label><input class='Datum' name='Datum_links' value= ".$Anwesend."> 

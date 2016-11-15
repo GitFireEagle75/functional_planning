@@ -3,6 +3,8 @@ CREATE DATABASE [Wachbesetzung]
 USE Wachbesetzung;
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Dienstgrad"
+-- Auflistung aller  Dienstgrade der Berliner Feuerwehr
+-- letzte Ebene der Normalisierung
 
 CREATE TABLE [dbo].[Dienstgrad] (Dienstgrad_ID int PRIMARY KEY,
                     Dienstgrad varchar(10));
@@ -17,7 +19,10 @@ INSERT INTO [dbo].[Dienstgrad] (Dienstgrad_ID, Dienstgrad) VALUES
 SET IDENTITY_INSERT [dbo].[Dienstgrad] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "FwZuordnung"
+-- Tabellenstruktur für Tabelle "Zuordnung"
+-- mit IT (DME) abgeglichene Kennung (Bsp.: 13 1 71 1) = FW + ZuOrdnung + TruppKennung + Truppfunktion (1-9)  
+-- letzte Ebene der Normalisierung
+
 CREATE TABLE [dbo].[FwZuordnung](FwZuordnung_ID int PRIMARY KEY,
                     BezeichnungZuordnung varchar(50));
 
@@ -31,46 +36,56 @@ SET IDENTITY_INSERT [dbo].[FwZuordnung] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Dienststellen"
+-- alle Dienststellen BF und FF ohne Stützpunkte
+-- Fremdkey gerichtet auf Tabelle Direktion, FwZuordnung
 
 CREATE TABLE [dbo].[Dienststellen](Dienststellen_ID int PRIMARY KEY,
                     Dienststellenname varchar(25),
                     Dienststellenkennung varchar(10),
                     Direktions_ID int,
+                    FwZuordnung_ID int,
 
-                    CONSTRAINT Direktions_Fk FOREIGN KEY (Direktions_ID) REFERENCES Direktion(Direktions_ID)ON DELETE CASCADE); 
+                    CONSTRAINT FwZuordnung_Fk FOREIGN KEY (FwZuordnung_ID) REFERENCES FwZuordnung(FwZuordnung_ID)ON DELETE CASCADE)                    
+                    CONSTRAINT Direktions_Fk FOREIGN KEY (Direktions_ID) REFERENCES Direktion(Direktions_ID)ON DELETE CASCADE);
+ 
+-- on delete keine Verändernung in Direktion , FwZuordnung zulassen nur mit Script durch Admin
 
 SET IDENTITY_INSERT [dbo].[Dienststellen] ON;
 
-INSERT INTO [dbo].[Dienststellen](Dienststellen_ID, Dienststellenname, Direktions_ID) VALUES
-(1, 'BF Prenzlauer Berg', 1300, 1),(2, 'BF Wittenau', 2200, 1),(3, 'BF Hermsdorf', 2300, 1),(4, 'BF Tegel', 2400, 1),(5, 'BF Pankow', 2600, 1),
-(6, 'BF Marzahn', 6100, 1),(7, 'BF Hellersdorf', 6200, 1),(8, 'BF Weißensee', 6300, 1),(9, 'BF Lichtenberg', 6400, 1),(10, 'BF Karlshorst', 6500, 1),
-(11, 'BF Rettungsdienst', 6600, 1),(12, 'BF Mitte',1100, 3),(13, 'BF Moabit',1400, 3),(14, 'BF Tiergarten', 1700, 3),(15, 'BF Schillerpark',2100, 3),
-(16, 'BF Wedding',2500, 3),(17, 'BF Spandau-Nord', 3100, 3),(18, 'BF Spandau-Süd',3200, 3),(19, 'BF Suarez',3300, 3),(20,'BF Wilmersdorf',3400, 3),
-(21,'BF Ranke',3500, 2),(22,'BF Charlottenburg-Nord',3600, 2),(23,'BF Haselhorst',3690, 2),(24,'BF Grunewald',3700, 2),(25,'BF Zehlendorf',4100, 2),
-(26,'BF Steglitz',4200, 2),(27,'BF Wannsee',4500, 2),(28,'BF Lichterfelde',4600, 2),(29,'BF Friedrichshain',1200, 2),(30,'BF Urban',1500, 2),
-(31,'BF Kreuzberg',1600, 2),(32,'BF Tempelhof',4300, 2),(33,'BF Schöneberg',4400, 2),(34,'BF Marienfelde',4700, 2),(35,'BF Neukölln',5100, 2),
-(36,'BF Buckow',5200, 2),(37,'BF Treptow',5300, 2),(38,'BF Köpenick',5400, 2),(39,'FD',3649, 3),(40,'TD-1',3639, 3),(41,'TD-2',6139, 1),
+INSERT INTO [dbo].[Dienststellen](Dienststellen_ID, Dienststellenname, Direktions_ID, FwZuordnung_ID) VALUES
+(1, 'BF Prenzlauer Berg', 1300, 1, 1),(2, 'BF Wittenau', 2200, 1, 1),(3, 'BF Hermsdorf', 2300, 1, 1),(4, 'BF Tegel', 2400, 1, 1),(5, 'BF Pankow', 2600, 1, 1),
+(6, 'BF Marzahn', 6100, 1, 1),(7, 'BF Hellersdorf', 6200, 1, 1),(8, 'BF Weißensee', 6300, 1, 1),(9, 'BF Lichtenberg', 6400, 1, 1),(10, 'BF Karlshorst', 6500, 1, 1),
+(11, 'BF Rettungsdienst', 6600, 1, 1),(12, 'BF Mitte',1100, 3, 1),(13, 'BF Moabit',1400, 3, 1),(14, 'BF Tiergarten', 1700, 3, 1),(15, 'BF Schillerpark',2100, 3, 1),
+(16, 'BF Wedding',2500, 3, 1),(17, 'BF Spandau-Nord', 3100, 3, 1),(18, 'BF Spandau-Süd',3200, 3, 1),(19, 'BF Suarez',3300, 3, 1),(20,'BF Wilmersdorf',3400, 3, 1),
+(21,'BF Ranke',3500, 2, 1),(22,'BF Charlottenburg-Nord',3600, 2, 1),(23,'BF Haselhorst',3690, 2, 1),(24,'BF Grunewald',3700, 2, 1),(25,'BF Zehlendorf',4100, 2, 1),
+(26,'BF Steglitz',4200, 2, 1),(27,'BF Wannsee',4500, 2, 1),(28,'BF Lichterfelde',4600, 2, 1),(29,'BF Friedrichshain',1200, 2, 1),(30,'BF Urban',1500, 2, 1),
+(31,'BF Kreuzberg',1600, 2, 1),(32,'BF Tempelhof',4300, 2, 1),(33,'BF Schöneberg',4400, 2, 1),(34,'BF Marienfelde',4700, 2, 1),(35,'BF Neukölln',5100, 2, 1),
+(36,'BF Buckow',5200, 2, 1),(37,'BF Treptow',5300, 2, 1),(38,'BF Köpenick',5400, 2, 1),(39,'FD',3649, 3, 4),(40,'TD-1',3639, 3, 3),(41,'TD-2',6139, 1, 3),
 
-(42, 'FF Prenzlauer Berg', 1310, 1),(43, 'FF Wittenau', 2201, 1),(44, 'FF Hermsdorf', 2301, 1),(45, 'FF Lübars', 2310, 1),(46, 'FF Frohnau', 2320, 1),
-(47, 'FF Tegel', 2401, 1),(48, 'FF Heiligensee', 2410, 1),(49, 'FF Tegelort', 2420, 1),(50, 'FF Niederschönhausen', 2610, 1),(51, 'FF Buchholz', 2620, 1),
-(52, 'FF Blankenfelde',2630, 1),(53, 'FF Wilhelmsruh',2640, 1),(54, 'FF Pankow',2650, 1),(55, 'FF Buch',2710, 1),(56, 'FF Karow',2720, 1),(57, 'FF Marzahn',6110, 1),
-(58, 'FF Biesdorf',6120, 1),(59, 'FF Kaulsdorf',6210, 1),(60, 'FF Mahlsdorf',6220, 1),(61, 'FF Hellersdorf',6230, 1),(62, 'FF Weißensee',6301, 1),(63, 'FF Hohenschönhausen',6310, 1),
-(64, 'FF Falkenberg',6320, 1),(65, 'FF Wartenberg',6330, 1),(66, 'FF Blankenburg',6360, 1),(67, 'FF Heinersdorf',6370, 1),(68, 'FF Lichtenberg',6401, 1),(69, 'FF Karlshorst',6501, 1),
+(42, 'FF Prenzlauer Berg', 1310, 1, 8),(43, 'FF Wittenau', 2201, 1, 8),(44, 'FF Hermsdorf', 2301, 1, 8),(45, 'FF Lübars', 2310, 1, 8),(46, 'FF Frohnau', 2320, 1, 8),
+(47, 'FF Tegel', 2401, 1, 8),(48, 'FF Heiligensee', 2410, 1, 8),(49, 'FF Tegelort', 2420, 1, 8),(50, 'FF Niederschönhausen', 2610, 1, 8),(51, 'FF Buchholz', 2620, 1, 8),
+(52, 'FF Blankenfelde',2630, 1, 8),(53, 'FF Wilhelmsruh',2640, 1, 8),(54, 'FF Pankow',2650, 1, 8),(55, 'FF Buch',2710, 1, 8),(56, 'FF Karow',2720, 1, 8),(57, 'FF Marzahn',6110, 1, 8),
+(58, 'FF Biesdorf',6120, 1, 8),(59, 'FF Kaulsdorf',6210, 1, 8),(60, 'FF Mahlsdorf',6220, 1, 8),(61, 'FF Hellersdorf',6230, 1, 8),(62, 'FF Weißensee',6301, 1, 8),(63, 'FF Hohenschönhausen',6310, 1, 8),
+(64, 'FF Falkenberg',6320, 1, 8),(65, 'FF Wartenberg',6330, 1, 8),(66, 'FF Blankenburg',6360, 1, 8),(67, 'FF Heinersdorf',6370, 1, 8),(68, 'FF Lichtenberg',6401, 1, 8),(69, 'FF Karlshorst',6501, 1, 8),
 
-(70, 'FF Mitte',1110, 3),(71, 'FF Moabit',1401, 3),(72, 'FF Wedding',2501, 3),(73, 'FF Spandau-Nord',3101, 3),(74, 'FF Staaken',3110, 3),(75, 'FF Gatow',3210, 3),(76, 'FF Kladow',3220, 3),
-(77, 'FF Suarez',3301, 3),(78, 'FF Zehlendorf',4101, 3),(79, 'FF Lichterfelde',4601, 3),(80, 'FF Friedrichshain',1201, 2),(81, 'FF Urban',1501, 2),(82, 'FF Schöneberg',4401, 2),
-(83, 'FF Marienfelde',4701, 2),(84, 'FF Lichtenrade',4710, 2),(85, 'FF Neukölln',5101, 2),(86, 'FF Rudow',5210, 2),(87, 'FF Treptow',5301, 2),(88, 'FF Adlershof',5310, 2),
-(89, 'FF Bohnsdorf',5320, 2),(90, 'FF Altglienicke',5330, 2),(91, 'FF Oberschöneweide',5340, 2),(92, 'FF Köpenick',5401, 2),(93, 'FF Friedrichshagen',5410, 2),(94, 'FF Wilhelmshagen',5430, 2),
-(95, 'FF Müggelheim',5440, 2),(96, 'FF Schmöckwitz',5450, 2),(97, 'FF Rauchfangswerder',5460, 2),(98, 'FF Grünau',5470, 2);
+(70, 'FF Mitte',1110, 3, 8),(71, 'FF Moabit',1401, 3, 8),(72, 'FF Wedding',2501, 3, 8),(73, 'FF Spandau-Nord',3101, 3, 8),(74, 'FF Staaken',3110, 3, 8),(75, 'FF Gatow',3210, 3, 8),(76, 'FF Kladow',3220, 3, 8),
+(77, 'FF Suarez',3301, 3, 8),(78, 'FF Zehlendorf',4101, 3, 8),(79, 'FF Lichterfelde',4601, 3, 8),(80, 'FF Friedrichshain',1201, 2, 8),(81, 'FF Urban',1501, 2, 8),(82, 'FF Schöneberg',4401, 2, 8),
+(83, 'FF Marienfelde',4701, 2, 8),(84, 'FF Lichtenrade',4710, 2, 8),(85, 'FF Neukölln',5101, 2, 8),(86, 'FF Rudow',5210, 2, 8),(87, 'FF Treptow',5301, 2, 8),(88, 'FF Adlershof',5310, 2, 8),
+(89, 'FF Bohnsdorf',5320, 2, 8),(90, 'FF Altglienicke',5330, 2, 8),(91, 'FF Oberschöneweide',5340, 2, 8),(92, 'FF Köpenick',5401, 2, 8),(93, 'FF Friedrichshagen',5410, 2, 8),(94, 'FF Wilhelmshagen',5430, 2, 8),
+(95, 'FF Müggelheim',5440, 2, 8),(96, 'FF Schmöckwitz',5450, 2, 8),(97, 'FF Rauchfangswerder',5460, 2, 8),(98, 'FF Grünau',5470, 2, 8);
 
 
 SET IDENTITY_INSERT [dbo].[Dienststellen] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Stützpunkte"
+-- Auflistung aller Stützpunkte auch in Krankenhäusern
+-- letzte Ebene der Normalisierung
+
 CREATE TABLE [dbo].[Stuetzpunkte](Stuetzpunkte_ID int PRIMARY KEY,
                     Dienststellenname varchar(40),
                     Dienststellenkennung varchar(10));
+                    -- Dienststellen_ID int;
 
 SET IDENTITY_INSERT [dbo].[Stuetzpunkte] ON;
 
@@ -86,6 +101,8 @@ SET IDENTITY_INSERT [dbo].[Stuetzpunkte] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Direktion"
+-- Auflistung der Direktionen
+-- letzte Ebene der Normalisierung
 
 CREATE TABLE [dbo].[Direktion](Direktions_ID int PRIMARY KEY,
                     DirektionName varchar(6)); 
@@ -100,8 +117,10 @@ INSERT INTO [dbo].[Direktion] (Direktions_ID, DirektionName) VALUES
 SET IDENTITY_INSERT [dbo].[Direktion] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
-
 -- Tabellenstruktur für Tabelle "Fahrzeuge"
+-- Auflistung aller Fahrzeuge die bei der FW existieren
+-- letzte Ebene der Normalisierung
+
 
 CREATE TABLE [dbo].[Fahrzeuge](Fahrzeuge_ID int PRIMARY KEY,
                     Fahrzeuge_Art varchar(12) NOT NULL,
@@ -128,9 +147,11 @@ INSERT INTO [dbo].[Fahrzeuge](Fahrzeuge_ID, Fahrzeuge_Art, Fahrzeug_Bezeichnung)
 SET IDENTITY_INSERT [dbo].[Fahrzeuge] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
-
 -- Tabellenstruktur für Tabelle ">Fahrzeugfunktionen"
+-- Auflistung aller Truppfunktionen die bei der FW existieren
 
+
+--!!!!!! noch überarbeiten IDs noch nicht einmalig Trupps Doppelt Lösung finden !!!!!!!!!!!!
 CREATE TABLE [dbo].[Fahrzeugfunktionen](Fahrzeugfunktionen_ID int PRIMARY KEY,
                     Fahrzeuge_ID int NOT NULL,
                     Funktions_Kennung int NOT NULL,
@@ -179,7 +200,7 @@ INSERT INTO [dbo].[Fahrzeugfunktionen](Fahrzeugfunktionen_ID, Fahrzeuge_ID, Funk
 (62, 11, '311', 'ELW-C_Fü', 'NULL'),(63, 11, '312', 'ELW-C_Ma', 'NULL'),
 (64, 12, '321', 'ELW-C ÄLRD_Fü', 'NULL'),(65, 12, '322', 'ELW-C ÄLRD_Ma', 'NULL'),
 --FD
-(66, 11, '591', 'ELW-1-Doku_Fü', 'NULL'),
+(66, 11, '591', 'ELW-1-Doku_Fü', 'NULL'), --!!!!!!!!!!!!! ab hier überarbeiten !!!!!!!!!!!!!!!!!!!!!
 (66, 13, '961', 'ELW-3-FL', 'NULL'),
 (66, 13, '962', 'ELW-3_Ma', 'NULL'),(67, 13, '963', 'ELW-3', 'NULL'),
 (61, 14, '', 'FmeW', 'NULL'),(61, 14, '', 'FmeW', 'NULL'),
@@ -205,9 +226,13 @@ INSERT INTO [dbo].[Fahrzeugfunktionen](Fahrzeugfunktionen_ID, Fahrzeuge_ID, Funk
 SET IDENTITY_INSERT [dbo].[Fahrzeugfunktionen] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
-
 -- Tabellenstruktur für Tabelle "Fahrzeugzuordnung_Dienststelle"
 -- Welche Fahrzeuge stehen auf der Hauptwache
+
+--!!!!!! noch überarbeiten Daten nicht vollzählig + Lösung finden !!!!!!!!!!!!
+--bei Änderung der Reihenfolge DB Eintrag ändern
+--bei Fahrzeug neu Zuordnung neuer Eintrag mit Datum ab wann diese gilt
+--keine Einträge löschen 
 
 CREATE TABLE [dbo].[Fahrzeugzuordnung_Dienststelle](Dienststellenzuordnung_ID int PRIMARY KEY,
                     Dienststellen_ID int NOT NULL,
@@ -228,6 +253,11 @@ SET IDENTITY_INSERT [dbo].[Fahrzeugzuordnung_Dienststelle] OFF;
 -- Tabellenstruktur für Tabelle "Fahrzeugzuordnung_Stützpunkt"
 -- Welche Fahrzeuge stehen auf den Stützpunkten
 
+--!!!!!! noch überarbeiten Daten nicht vollzählig + Lösung finden !!!!!!!!!!!!
+--bei Änderung der Reihenfolge DB Eintrag ändern
+--bei Fahrzeug neu Zuordnung neuer Eintrag mit Datum ab wann diese gilt
+--keine Einträge löschen 
+
 CREATE TABLE [dbo].[Fahrzeugzuordnung_Stützpunkt](Stuetzpunktzuordnung_ID int PRIMARY KEY,
                     Stuetzpunkt_ID int NOT NULL,
                     Fahrzeug_ID int,
@@ -246,6 +276,8 @@ SET IDENTITY_INSERT [dbo].[Fahrzeugzuordnung_Stützpunkt] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Funktion_Personal"
+-- Was darf welcher Kollege für Funktionen ausüben
+-- letzte Ebene der Normalisierung
 
 CREATE TABLE [dbo].[Funktion_Personal](Grundfunktions_ID int PRIMARY KEY,
                     Funktionsbezeichnung varchar(40),
@@ -254,7 +286,7 @@ CREATE TABLE [dbo].[Funktion_Personal](Grundfunktions_ID int PRIMARY KEY,
 SET IDENTITY_INSERT [dbo].[Funktion_Personal] ON;
 
 -- Summe mehrerer "FunktionsKeyBerechnung" muss eindeutig sein um einzelne Fahrzeugfunktion zu bestimmen
--- Bsp.: Key.: 99999999 = ohne Funktion 1 höhste 8 niedrigste Funktion
+-- Bsp.: Key.: 99999999 = ohne Funktion / 1 höhste 8 niedrigste Funktion
 -- Zusammensetzung aus (Führungsfunktion=1 ,Maschinist Wache, Maschinist Führungsfahrzeuge, Maschinist Sonderfahrzeuge, Rettungsdienstfunktion)
 --  oder: jede Funktion eindeutige Nummer - Summe aller Nummern ist Berechtigungs Key                                           
 --                                             )
@@ -264,6 +296,8 @@ INSERT INTO [dbo].[Funktion_Personal](Grundfunktions_ID, Funktionsbezeichnung, F
 SET IDENTITY_INSERT [dbo].[Funktion_Personal] OFF;
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Führungsfunktion"
+--Auflistung aller Führungsfunktionen
+-- letzte Ebene der Normalisierung
 
 CREATE TABLE [dbo].[Führungsfunktion](Führungsfunktion_ID int PRIMARY KEY,
                                       Führungsfunktion varchar(20)) ;
@@ -276,6 +310,8 @@ INSERT INTO [dbo].[Führungsfunktion](Führungsfunktion_ID, Führungsfunktion) V
 SET IDENTITY_INSERT [dbo].[Führungsfunktion] OFF;
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Funktion_Rettungsdienst"
+--Auflistung aller Rettungsdienstfunktionen
+-- letzte Ebene der Normalisierung
 
 CREATE TABLE [dbo].[Funktion_Rettungsdienst](Funktion_Rettungsdienst_ID int PRIMARY KEY,
                                              Funktion_Rettungsdienst varchar(15)) ;
@@ -289,7 +325,11 @@ INSERT INTO [dbo].[Funktion_Rettungsdienst] (Funktion_Rettungsdienst_ID, Funktio
 SET IDENTITY_INSERT [dbo].[Funktion_Rettungsdienst] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Sonderfunktionen" ? Ermitteln unterschiedlicher Sonderfunktionen ?
+-- Tabellenstruktur für Tabelle "Sonderfunktionen" 
+--?????????????? Ermitteln unterschiedlicher Sonderfunktionen ????????????????
+-- Auflistung wer darf was tun
+-- alternative für -> Tabelle Funktionen Personal  alles Auflisten und auf True or False setzen
+--?????????? neue Tabelle für die Priorität der Funktion in der automatischen Funktionsplanung  ???????????????
 
 CREATE TABLE [dbo].[Sonderfunktionen](Sonderfunktion_ID int PRIMARY KEY,
                                         Personal_ID int NOT NULL,
@@ -329,6 +369,8 @@ SET IDENTITY_INSERT [dbo].[Sonderfunktionen] OFF;*/
 
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Wachabteilung"
+-- letzte Ebene der Normalisierung
+
 CREATE TABLE [dbo].[Wachabteilung](Wachabteilung_ID int PRIMARY KEY,
                                    Abteilung varchar(10)) ;
 
@@ -336,7 +378,7 @@ CREATE TABLE [dbo].[Wachabteilung](Wachabteilung_ID int PRIMARY KEY,
 SET IDENTITY_INSERT [dbo].[Wachabteilung] ON ;
 
 INSERT INTO [dbo].[Wachabteilung](Wachabteilung_ID, Abteilung) VALUES
-(1, '1_Tour'),(2, '2_Tour'),(3, '3_Tour'),(4, '4.Tour');
+(1, '1_Tour'),(2, '2_Tour'),(3, '3_Tour'),(4, '4_Tour');
 
 SET IDENTITY_INSERT [dbo].[Wachabteilung] OFF;
 
@@ -358,6 +400,9 @@ CREATE TABLE [dbo].[Funktionsbesetzung](Besetzungs_ID int PRIMARY KEY,
 
 -----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Personaldaten" 
+-- Wünschenswert Zugriff auf die PLASMA Datenbank
+-- letzte Ebene der Normalisierung
+
 CREATE TABLE [dbo].[Personaldaten](Personal_ID int PRIMARY KEY,
                                     Telefon varchar(25), 
                                     Handy varchar(25), 
@@ -370,6 +415,9 @@ SET IDENTITY_INSERT [dbo].[Personaldaten] ON;
 SET IDENTITY_INSERT [dbo].[Personaldaten] OFF;
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Profilbilder"
+-- Wünschenswert Zugriff auf die PLASMA Datenbank
+-- letzte Ebene der Normalisierung
+
 CREATE TABLE [dbo].[Profilbilder](Profilbild_ID int PRIMARY KEY,
                                   Dateiname varchar(8), --Personalnummer
                                   ImageData image) ;
@@ -382,16 +430,20 @@ SET IDENTITY_INSERT [dbo].[Stuetzpunkte] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Stützpunkte_has_Dienststellen"
+-- Welcher Stützpunkt ist der Hauptwache zugeordnet und ab wann bzw bis wann (Wachtagebuch einsicht rückwirkend)
+--!!!!!!!!!!!!!!!! Datum für Auswertung ab/bis !!!!!!!!!!!!
 
 CREATE TABLE [dbo].[Stützpunkte_has_Dienststellen](Dienststelle_has_ID int PRIMARY KEY,
+                                                    Dienststellen_ID int,
                                                     Stuetzpunkt_ID int,
                                                     Stuetzpunkt_Rang int,
-
+                                                    
+                                                    CONSTRAINT Dienststellen_Fk FOREIGN KEY (Dienststellen_ID) REFERENCES Dienststellen(Dienststellen_ID)ON DELETE CASCADE,
                                                     CONSTRAINT StuePun_Fk FOREIGN KEY (Stuetzpunkt_ID) REFERENCES Dienstgrad(Dienstgrad_ID)ON DELETE CASCADE,
                                                     CONSTRAINT StuePunRang_Fk FOREIGN KEY (Stuetzpunkt_ID) REFERENCES Dienstgrad(Dienstgrad_ID)ON DELETE CASCADE);
 SET IDENTITY_INSERT [dbo].[Stützpunkte_has_Dienststellen] ON;
 
---INSERT INTO [dbo].[Profilbilder](Dienststelle_has_ID, Stuetzpunkt_ID , Stuetzpunkt_Rang) VALUES
+--INSERT INTO [dbo].[Profilbilder](Dienststelle_has_ID, Dienststellen_ID, Stuetzpunkt_ID , Stuetzpunkt_Rang) VALUES
 
 SET IDENTITY_INSERT [dbo].[Stützpunkte_has_Dienststellen] OFF;
 ----------------------------------------------------------------------------------------------------------------------
@@ -406,8 +458,9 @@ SET IDENTITY_INSERT [dbo].[Wachzuordnung] ON ;
 
 SET IDENTITY_INSERT [dbo].[Wachzuordnung] OFF;
 ----------------------------------------------------------------------------------------------------------------------
-
 -- Tabellenstruktur für Tabelle "Personal"
+-- Wünschenswert Zugriff auf die PLASMA Datenbank
+
 CREATE TABLE [dbo].[Personal](Personal_ID int PRIMARY KEY,
             PersonalNr int,
             Nachname varchar(50),

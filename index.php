@@ -1,4 +1,6 @@
 <?php
+
+/*Aufruf der ausgewählten Seite und einbinden der Datenbank über externe php Seite*/
 	session_start();
 	
     if(isset($_GET["section"])){
@@ -22,7 +24,7 @@
                 } ; */       
 ?>
 
-
+<!-- Basis Website mit eingebundenen php Seiten -->
 <!DOCTYPE html>
 <head>
 <?php include ("./pages/meta.php");?>

@@ -7,12 +7,15 @@
 ** TODO
  /* Array  Construct Station and Sub Station (Database)
  *  Array(Station and Sub Station) = [Station][SubStation 1][SubStation 2][SubStation 3][SubStation 4].........;
+ * 
+ * Abruf, nach Selektierung der Hauptwache, aller untergeordneten Stützpunkte aus der Datenbanktabelle 
  */
 $Wachzuordnung = Array('FW_1300','FW_1310','FW_2620');
 /*
 ** TODO
 /*  Array  Construct Vehicle from FireStation (Database)
  * Array (vehicle allocation) = Array([Station or SubStation][vehicle 1 - 10][Day and Night or Day or Night]],
+ * 
 */
 $Fahrzeugzuordnung = [  ['Standort' => $Wachzuordnung[0] ,'Fahrzeug' => 'LHF_1','Dienst' =>'T/N'], 
                         ['Standort' => $Wachzuordnung[0] ,'Fahrzeug' => 'DLK', 'Dienst' =>'T/N'],

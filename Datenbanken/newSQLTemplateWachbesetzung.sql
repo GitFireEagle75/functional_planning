@@ -17,23 +17,22 @@ INSERT INTO [dbo].[Dienstgrad] (Dienstgrad_ID, Dienstgrad) VALUES
 (11, 'BOI'),(12, 'BI'),(13, 'BOI_Anw'),(14, 'HBMz'),(15, 'HBM*'),(16, 'HBM'),(17, 'OBM'),(18, 'BM'),(19, 'BM_Anw'),(20, 'BM_zA');
 
 SET IDENTITY_INSERT [dbo].[Dienstgrad] OFF;
-
 ----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Zuordnung"
--- mit IT (DME) abgeglichene Kennung (Bsp.: 13 1 71 1) = FW + ZuOrdnung + TruppKennung + Truppfunktion (1-9)  
+-- Tabellenstruktur für Tabelle "Direktion"
+-- Auflistung der Direktionen
 -- letzte Ebene der Normalisierung
 
-CREATE TABLE [dbo].[FwZuordnung](FwZuordnung_ID int PRIMARY KEY,
-                    BezeichnungZuordnung varchar(50));
+CREATE TABLE [dbo].[Direktion](Direktions_ID int PRIMARY KEY,
+                    DirektionName varchar(6)); 
 
-SET IDENTITY_INSERT [dbo].[FwZuordnung] ON;
+-- Daten für Tabelle "Direktion"
 
-INSERT INTO [dbo].[FwZuordnung](FwZuordnung_ID, BezeichnungZuordnung) VALUES
-(1,'BF'),(2,'BW'),(3,'TD'),(4,'FD'),(5,'BFRA(LRW Fahrzeuge)'),
-(6,'BF/LRW auf StüP'),(7,'HioS'),(8,'FF'),(9,'Sonderfunktion');
+SET IDENTITY_INSERT [dbo].[Direktion] ON ;
 
-SET IDENTITY_INSERT [dbo].[FwZuordnung] OFF;
+INSERT INTO [dbo].[Direktion] (Direktions_ID, DirektionName) VALUES
+(1, 'Nord'),(2, 'Süd'),(3, 'West');
 
+SET IDENTITY_INSERT [dbo].[Direktion] OFF;
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Dienststellen"
 -- alle Dienststellen BF und FF ohne Stützpunkte
@@ -44,9 +43,8 @@ CREATE TABLE [dbo].[Dienststellen](Dienststellen_ID int PRIMARY KEY,
                     Dienststellenkennung varchar(10),
                     Direktions_ID int,
                     FwZuordnung_ID int,
-
-                    CONSTRAINT FwZuordnung_Fk FOREIGN KEY (FwZuordnung_ID) REFERENCES FwZuordnung(FwZuordnung_ID)ON DELETE CASCADE)                    
-                    CONSTRAINT Direktions_Fk FOREIGN KEY (Direktions_ID) REFERENCES Direktion(Direktions_ID)ON DELETE CASCADE);
+                    CONSTRAINT Direktions_Fk FOREIGN KEY (Direktions_ID) REFERENCES Direktion(Direktions_ID)ON DELETE CASCADE,
+					CONSTRAINT FwZuordnung_Fk FOREIGN KEY (FwZuordnung_ID) REFERENCES FwZuordnung(FwZuordnung_ID)ON DELETE CASCADE);
  
 -- on delete keine Verändernung in Direktion , FwZuordnung zulassen nur mit Script durch Admin
 
@@ -74,9 +72,7 @@ INSERT INTO [dbo].[Dienststellen](Dienststellen_ID, Dienststellenname, Direktion
 (89, 'FF Bohnsdorf',5320, 2, 8),(90, 'FF Altglienicke',5330, 2, 8),(91, 'FF Oberschöneweide',5340, 2, 8),(92, 'FF Köpenick',5401, 2, 8),(93, 'FF Friedrichshagen',5410, 2, 8),(94, 'FF Wilhelmshagen',5430, 2, 8),
 (95, 'FF Müggelheim',5440, 2, 8),(96, 'FF Schmöckwitz',5450, 2, 8),(97, 'FF Rauchfangswerder',5460, 2, 8),(98, 'FF Grünau',5470, 2, 8);
 
-
 SET IDENTITY_INSERT [dbo].[Dienststellen] OFF;
-
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Stützpunkte"
 -- Auflistung aller Stützpunkte auch in Krankenhäusern
@@ -98,24 +94,70 @@ INSERT INTO [dbo].[Stuetzpunkte](Stuetzpunkte_ID, Dienststellenname, Dienststell
 (30, 'RD-SP Wartenberg/Malchow', 6330),(31, 'RD-SP Hohenschönhausen', 6310);
 
 SET IDENTITY_INSERT [dbo].[Stuetzpunkte] OFF;
-
 ----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Direktion"
--- Auflistung der Direktionen
+-- Tabellenstruktur für Tabelle "Stützpunkte_has_Dienststellen"
+-- Welcher Stützpunkt ist der Hauptwache zugeordnet und ab wann bzw bis wann (Wachtagebuch einsicht rückwirkend)
+--!!!!!!!!!!!!!!!! Datum für Auswertung ab/bis !!!!!!!!!!!!
+
+CREATE TABLE [dbo].[Stützpunkte_has_Dienststellen](Dienststelle_has_ID int PRIMARY KEY,
+                                                    Dienststellen_ID int,
+                                                    Stuetzpunkt_ID int,
+                                                    Stuetzpunkt_Rang int,
+													Gültig_ab Date,
+					                                Gültig_bis Date,
+                                                    
+                                                    CONSTRAINT Dienststellen_Fk FOREIGN KEY (Dienststellen_ID) REFERENCES Dienststellen(Dienststellen_ID)ON DELETE CASCADE,
+                                                    CONSTRAINT StuePun_Fk FOREIGN KEY (Stuetzpunkt_ID) REFERENCES Dienstgrad(Dienstgrad_ID)ON DELETE CASCADE,
+                                                    CONSTRAINT StuePunRang_Fk FOREIGN KEY (Stuetzpunkt_ID) REFERENCES Dienstgrad(Dienstgrad_ID)ON DELETE CASCADE);
+SET IDENTITY_INSERT [dbo].[Stützpunkte_has_Dienststellen] ON;
+
+INSERT INTO [dbo].[Stützpunkte_has_Dienststellen](Dienststelle_has_ID, Dienststellen_ID, Stuetzpunkt_ID , Stuetzpunkt_Rang , Gültig_ab , Gültig_bis) VALUES
+(1,1,2,1,2011-01-01,'NULL');
+
+SET IDENTITY_INSERT [dbo].[Stützpunkte_has_Dienststellen] OFF;
+----------------------------------------------------------------------------------------------------------------------
+-- Tabellenstruktur für Tabelle "Wachabteilung"
 -- letzte Ebene der Normalisierung
 
-CREATE TABLE [dbo].[Direktion](Direktions_ID int PRIMARY KEY,
-                    DirektionName varchar(6)); 
+CREATE TABLE [dbo].[Wachabteilung](Wachabteilung_ID int PRIMARY KEY,
+                                   Abteilung varchar(10)) ;
 
--- Daten für Tabelle "Direktion"
+-- Daten für Tabelle "Wachabteilung"
+SET IDENTITY_INSERT [dbo].[Wachabteilung] ON ;
 
-SET IDENTITY_INSERT [dbo].[Direktion] ON ;
+INSERT INTO [dbo].[Wachabteilung](Wachabteilung_ID, Abteilung) VALUES
+(1, '1_Tour'),(2, '2_Tour'),(3, '3_Tour'),(4, '4_Tour');
 
-INSERT INTO [dbo].[Direktion] (Direktions_ID, DirektionName) VALUES
-(1, 'Nord'),(2, 'Süd'),(3, 'West');
+SET IDENTITY_INSERT [dbo].[Wachabteilung] OFF;
+----------------------------------------------------------------------------------------------------------------------
+-- Tabellenstruktur für Tabelle "Führungsfunktion"
+--Auflistung aller Führungsfunktionen
+-- letzte Ebene der Normalisierung
 
-SET IDENTITY_INSERT [dbo].[Direktion] OFF;
+CREATE TABLE [dbo].[Führungsfunktion](Führungsfunktion_ID int PRIMARY KEY,
+                                      Führungsfunktion varchar(20)) ;
 
+-- Daten für Tabelle "Führungsfunktion"
+SET IDENTITY_INSERT [dbo].[Führungsfunktion] ON ;
+INSERT INTO [dbo].[Führungsfunktion](Führungsfunktion_ID, Führungsfunktion) VALUES
+(1, 'A-Dienst'),(2, 'B-Dienst'),(3, 'C-Dienst'),(4, 'C-Dienst ÄLRD'),(5, 'Zgf'),(6, 'Stf*'),(7, 'Stf'),(8, 'Fzf'),(9, 'Tr_Fü'),(10, 'Tr_Ma');
+
+SET IDENTITY_INSERT [dbo].[Führungsfunktion] OFF;
+----------------------------------------------------------------------------------------------------------------------
+-- Tabellenstruktur für Tabelle "Funktion_Rettungsdienst"
+--Auflistung aller Rettungsdienstfunktionen
+-- letzte Ebene der Normalisierung
+
+CREATE TABLE [dbo].[Funktion_Rettungsdienst](Funktion_Rettungsdienst_ID int PRIMARY KEY,
+                                             Funktion_Rettungsdienst varchar(15)) ;
+
+-- Daten für Tabelle "Funktion_Rettungsdienst"
+
+SET IDENTITY_INSERT [dbo].[Funktion_Rettungsdienst] ON ;
+INSERT INTO [dbo].[Funktion_Rettungsdienst] (Funktion_Rettungsdienst_ID, Funktion_Rettungsdienst) VALUES
+(1, 'Notarzt'),(2, 'Not_San'),(3, 'Rett_Ass'),(4, 'RS_2000'),(5, 'Rett_San'),(6, 'Rett_Helfer'),(7, 'ohne');
+
+SET IDENTITY_INSERT [dbo].[Funktion_Rettungsdienst] OFF;
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Fahrzeuge"
 -- Auflistung aller Fahrzeuge die bei der FW existieren
@@ -133,9 +175,7 @@ SET IDENTITY_INSERT [dbo].[Fahrzeuge] ON ;
 INSERT INTO [dbo].[Fahrzeuge](Fahrzeuge_ID, Fahrzeuge_Art, Fahrzeug_Bezeichnung) VALUES
 (1, 'LHF', 'LHF-1'),(2, 'LHF', 'LHF-2'),(3, 'TLF', 'TLF-24/40'),(4, 'TLF', 'TLF-24/50'),(5, 'LF-16-TS', 'LF-16-TS'),(6, 'LF-Z', 'LF-Z'),(7, 'DL(K)', 'DL(K)'),
 (8, 'Klef', 'Klef'),(9, 'ELW', 'ELW-A'),(10, 'ELW', 'ELW-B'),(11, 'ELW', 'ELW-C'),(12, 'ELW', 'ELW-C ÄLRD'),(13, 'ELW-3', 'ELW-3'),(14, 'FmeW', 'FmeW'),
-
 (15, 'LKW', 'LKW'),(16, 'LKW', 'LKW Ladebord'),(17, 'LKW', 'LKW Öl'),(18, 'SW', 'SW'),(19, 'RTB', 'RettBoot'),
-
 (20, 'AB', 'AB Schlauch'),(21, 'AB', 'AB Gefahrgut'),(22, 'AB', 'AB Atemschutz'),(23, 'AB', 'AB *?*'),(24, 'AB', 'AB Sand'),
 (25, 'RW', 'RW-3'),(26, 'MTF', 'MTF-1'),(27, 'MTF', 'MTF-3'),(28, 'GW', 'GW Mess'),(29, 'GW Wasser', 'GW Wasser'),(30, 'WLF', 'WLF Gr.1'),(31, 'WLF', 'WLF Gr.2'),
 (32, 'FWK', 'FWK-30'),(33, 'TM', 'TM-50'),(34, 'ABC Erkunder', 'ABC Erkunder'),(35, 'Dekon P', 'Dekon P'),(36, 'Dekon G', 'Dekon G'),
@@ -145,7 +185,22 @@ INSERT INTO [dbo].[Fahrzeuge](Fahrzeuge_ID, Fahrzeuge_Art, Fahrzeug_Bezeichnung)
 (57, 'RTW', 'RTW_BW'),(58, 'NEF', 'NEF'),(59, 'Fmel', 'Fernmelder'); 
 
 SET IDENTITY_INSERT [dbo].[Fahrzeuge] OFF;
+----------------------------------------------------------------------------------------------------------------------
 
+-- Tabellenstruktur für Tabelle "Zuordnung"
+-- mit IT (DME) abgeglichene Kennung (Bsp.: 13 1 71 1) = FW + ZuOrdnung + TruppKennung + Truppfunktion (1-9)  
+-- letzte Ebene der Normalisierung
+
+CREATE TABLE [dbo].[FwZuordnung](FwZuordnung_ID int PRIMARY KEY,
+                    BezeichnungZuordnung varchar(50));
+
+SET IDENTITY_INSERT [dbo].[FwZuordnung] ON;
+
+INSERT INTO [dbo].[FwZuordnung](FwZuordnung_ID, BezeichnungZuordnung) VALUES
+(1,'BF'),(2,'BW'),(3,'TD'),(4,'FD'),(5,'BFRA(LRW Fahrzeuge)'),
+(6,'BF/LRW auf StüP'),(7,'HioS'),(8,'FF'),(9,'Sonderfunktion');
+
+SET IDENTITY_INSERT [dbo].[FwZuordnung] OFF;
 ----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle ">Fahrzeugfunktionen"
 -- Auflistung aller Truppfunktionen die bei der FW existieren
@@ -199,6 +254,7 @@ INSERT INTO [dbo].[Fahrzeugfunktionen](Fahrzeugfunktionen_ID, Fahrzeuge_ID, Funk
 
 (62, 11, '311', 'ELW-C_Fü', 'NULL'),(63, 11, '312', 'ELW-C_Ma', 'NULL'),
 (64, 12, '321', 'ELW-C ÄLRD_Fü', 'NULL'),(65, 12, '322', 'ELW-C ÄLRD_Ma', 'NULL'),
+
 --FD
 (66, 11, '591', 'ELW-1-Doku_Fü', 'NULL'), --!!!!!!!!!!!!! ab hier überarbeiten !!!!!!!!!!!!!!!!!!!!!
 (66, 13, '961', 'ELW-3-FL', 'NULL'),
@@ -210,10 +266,10 @@ INSERT INTO [dbo].[Fahrzeugfunktionen](Fahrzeugfunktionen_ID, Fahrzeuge_ID, Funk
 (66, 13, '581', 'GW_Wasser_Fü', 'NULL'),(66, 13, '582', 'GW_Wasser_Ma', 'NULL'),
 --LKW
 (61, 14, '571', 'LKW_AB/LB_Fü', 'NULL'),(61, 14, '572', 'LKW_AB/LB_Ma', 'NULL'),(61, 14, '573', 'LKW_AB/LB', 'NULL'),
-(61, , '811', 'LKW_1_Ma', 'NULL'),(61, , '821', 'LKW_2_Ma', 'NULL'),(61, , '831', 'LKW_3_Ma', 'NULL'),
-(61, , '', '', 'NULL'),(61, , '', '', 'NULL'),(61, , '', '', 'NULL'),
+(61,'' , '811', 'LKW_1_Ma', 'NULL'),(61,'' , '821', 'LKW_2_Ma', 'NULL'),(61,'' , '831', 'LKW_3_Ma', 'NULL'),
+(61,'' , '', '', 'NULL'),(61,'' , '', '', 'NULL'),(61,'' , '', '', 'NULL'),
 --ABC
-(61, , '341', 'ABC_Erkunder', 'NULL'),(61, , '342', 'ABC_Erkunder', 'NULL'),
+(61,'' , '341', 'ABC_Erkunder', 'NULL'),(61,'' , '342', 'ABC_Erkunder', 'NULL'),
 --Klef
 (66, 13, '581', 'Klef', 'NULL'),(66, 13, '582', 'Klef', 'NULL'),
 --GW
@@ -239,14 +295,15 @@ CREATE TABLE [dbo].[Fahrzeugzuordnung_Dienststelle](Dienststellenzuordnung_ID in
                     Fahrzeug_ID int NOT NULL,
                     Dienststellenposition int NOT NULL,
                     Gültig_ab Date NOT NULL,
+					Gültig_bis Date NOT NULL,
 
-                    CONSTRAINT Fahrzeuge_Fk FOREIGN KEY (Fahrzeuge_ID) REFERENCES Fahrzeuge(Fahrzeuge_ID)ON DELETE CASCADE,
+                    CONSTRAINT Fahrzeuge_Fk FOREIGN KEY (Fahrzeug_ID) REFERENCES Fahrzeuge(Fahrzeuge_ID)ON DELETE CASCADE,
                     CONSTRAINT Dienststellen_Fk FOREIGN KEY (Dienststellen_ID) REFERENCES Dienststellen(Dienststellen_ID)ON DELETE CASCADE) ;
 
 SET IDENTITY_INSERT [dbo].[Fahrzeugzuordnung_Dienststelle] ON;
 
-INSERT INTO [dbo].[Fahrzeugzuordnung_Dienststelle](Dienststellenzuordnung_ID, Dienststellen_ID, Fahrzeug_ID, Dienststellenposition, Gültig_ab) VALUES
-(1,1,1,1,2011-01-01),(2,1,3,2,2011-01-01),(3,1,2,3,2011-01-01),(4,1,4,4,2011-01-01);
+INSERT INTO [dbo].[Fahrzeugzuordnung_Dienststelle](Dienststellenzuordnung_ID, Dienststellen_ID, Fahrzeug_ID, Dienststellenposition, Gültig_ab, Gültig_bis) VALUES
+(1,1,1,1,2011-01-01,2011-01-01),(2,1,3,2,2011-01-01,2011-01-01),(3,1,2,3,2011-01-01,2011-01-01),(4,1,4,4,2011-01-01,2011-01-01);
 
 SET IDENTITY_INSERT [dbo].[Fahrzeugzuordnung_Dienststelle] OFF;
 ----------------------------------------------------------------------------------------------------------------------
@@ -263,141 +320,53 @@ CREATE TABLE [dbo].[Fahrzeugzuordnung_Stützpunkt](Stuetzpunktzuordnung_ID int P
                     Fahrzeug_ID int,
                     Dienststellenposition int,
                     Gültig_ab Date,
+					Gültig_bis Date,
 
-                    CONSTRAINT Stuetzpunkt_Fk FOREIGN KEY (Stuetzpunkt_ID) REFERENCES Stuetzpunkt(Stuetzpunkt_ID)ON DELETE CASCADE,
-                    CONSTRAINT Fahrzeuge_Fk FOREIGN KEY (Fahrzeuge_ID) REFERENCES Fahrzeuge(Fahrzeuge_ID)ON DELETE CASCADE);
+                    CONSTRAINT Stuetzpunkt_Fk FOREIGN KEY (Stuetzpunkt_ID) REFERENCES Stuetzpunkte(Stuetzpunkte_ID)ON DELETE CASCADE,
+                    CONSTRAINT Fahrzeuge_Fk FOREIGN KEY (Fahrzeug_ID) REFERENCES Fahrzeuge(Fahrzeuge_ID)ON DELETE CASCADE);
 
 SET IDENTITY_INSERT [dbo].[Fahrzeugzuordnung_Stützpunkt] ON;
 
-INSERT INTO [dbo].[Fahrzeugzuordnung_Stützpunkt](Stuetzpunktzuordnung_ID, Stuetzpunkt_ID, Fahrzeug_ID, Dienststellenposition, Gültig_ab) VALUES
-(1,1,4,1,2011-01-01),(2,1,5,2,2011-01-01);
+INSERT INTO [dbo].[Fahrzeugzuordnung_Stützpunkt](Stuetzpunktzuordnung_ID, Stuetzpunkt_ID, Fahrzeug_ID, Dienststellenposition, Gültig_ab, Gültig_bis) VALUES
+(1,1,4,1,2011-01-01,2011-01-01),(2,1,5,2,2011-01-01,2011-01-01);
 
 SET IDENTITY_INSERT [dbo].[Fahrzeugzuordnung_Stützpunkt] OFF;
+----------------------------------------------------------------------------------------------------------------------
+-- Tabellenstruktur für Tabelle "Wachzuordnung"
+CREATE TABLE [dbo].[Wachzuordnung](Wachzuordnung_ID int PRIMARY KEY) ;
+
+-- Daten für Tabelle "Wachzuordnung"
+SET IDENTITY_INSERT [dbo].[Wachzuordnung] ON ;
+
+--INSERT INTO [dbo].[Wachzuordnung](Wachzuordnung_ID) VALUES
+
+
+SET IDENTITY_INSERT [dbo].[Wachzuordnung] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Funktion_Personal"
--- Was darf welcher Kollege für Funktionen ausüben
--- letzte Ebene der Normalisierung
+-- Tabellenstruktur für Tabelle "Personal"
+-- Wünschenswert Zugriff auf die PLASMA Datenbank
 
-CREATE TABLE [dbo].[Funktion_Personal](Grundfunktions_ID int PRIMARY KEY,
-                    Funktionsbezeichnung varchar(40),
-                    FunktionsKeyBerechnung int) ;
+CREATE TABLE [dbo].[Personal](Personal_ID int PRIMARY KEY,
+            PersonalNr int,
+            Nachname varchar(50),
+            Vorname varchar(50),
+            Dienstgrad_ID int,
+            Dienststellen_ID int,
+            Wachabteilung_ID int,
+            FwZuordnung_ID int,
+            CONSTRAINT DG_Fk FOREIGN KEY (Dienstgrad_ID) REFERENCES Dienstgrad(Dienstgrad_ID)ON DELETE CASCADE,
+            CONSTRAINT Dienststellen_Fk FOREIGN KEY (Dienststellen_ID)  REFERENCES Dienststellen(Dienststellen_ID)ON DELETE CASCADE,
+            CONSTRAINT Wachabteilung_Fk FOREIGN KEY (Wachabteilung_ID)  REFERENCES Wachabteilung(Wachabteilung_ID)ON DELETE CASCADE,
+            CONSTRAINT FwZuordnung_Fk FOREIGN KEY (FwZuordnung_ID)  REFERENCES FwZuordnung(FwZuordnung_ID)ON DELETE CASCADE);
 
-SET IDENTITY_INSERT [dbo].[Funktion_Personal] ON;
+SET IDENTITY_INSERT [dbo].[Personal] ON;
 
--- Summe mehrerer "FunktionsKeyBerechnung" muss eindeutig sein um einzelne Fahrzeugfunktion zu bestimmen
--- Bsp.: Key.: 99999999 = ohne Funktion / 1 höhste 8 niedrigste Funktion
--- Zusammensetzung aus (Führungsfunktion=1 ,Maschinist Wache, Maschinist Führungsfahrzeuge, Maschinist Sonderfahrzeuge, Rettungsdienstfunktion)
---  oder: jede Funktion eindeutige Nummer - Summe aller Nummern ist Berechtigungs Key                                           
---                                             )
-INSERT INTO [dbo].[Funktion_Personal](Grundfunktions_ID, Funktionsbezeichnung, FunktionsKeyBerechnung) VALUES
-(1,'A-Dienst',19999999),(2,'B-Dienst',29999999),(3,'C-Dienst',39999999),(4,'Zfg',49999999);
+--INSERT INTO [dbo].[Personal](Personal_ID, PersonalNr, Nachname, Vorname, Dienstgrad_ID,
+-- Dienststellen_ID, Abteilungs_ID, FwZuordnung_ID) VALUES
 
-SET IDENTITY_INSERT [dbo].[Funktion_Personal] OFF;
-----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Führungsfunktion"
---Auflistung aller Führungsfunktionen
--- letzte Ebene der Normalisierung
 
-CREATE TABLE [dbo].[Führungsfunktion](Führungsfunktion_ID int PRIMARY KEY,
-                                      Führungsfunktion varchar(20)) ;
-
--- Daten für Tabelle "Führungsfunktion"
-SET IDENTITY_INSERT [dbo].[Führungsfunktion] ON ;
-INSERT INTO [dbo].[Führungsfunktion](Führungsfunktion_ID, Führungsfunktion) VALUES
-(1, 'A-Dienst'),(2, 'B-Dienst'),(3, 'C-Dienst'),(4, 'C-Dienst ÄLRD'),(5, 'Zgf'),(6, 'Stf*'),(7, 'Stf'),(8, 'Fzf'),(9, 'Tr_Fü'),(10, 'Tr_Ma');
-
-SET IDENTITY_INSERT [dbo].[Führungsfunktion] OFF;
-----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Funktion_Rettungsdienst"
---Auflistung aller Rettungsdienstfunktionen
--- letzte Ebene der Normalisierung
-
-CREATE TABLE [dbo].[Funktion_Rettungsdienst](Funktion_Rettungsdienst_ID int PRIMARY KEY,
-                                             Funktion_Rettungsdienst varchar(15)) ;
-
--- Daten für Tabelle "Funktion_Rettungsdienst"
-
-SET IDENTITY_INSERT [dbo].[Funktion_Rettungsdienst] ON ;
-INSERT INTO [dbo].[Funktion_Rettungsdienst] (Funktion_Rettungsdienst_ID, Funktion_Rettungsdienst) VALUES
-(1, 'Notarzt'),(2, 'Not_San'),(3, 'Rett_Ass'),(4, 'RS_2000'),(5, 'Rett_San'),(6, 'Rett_Helfer'),(7, 'ohne');
-
-SET IDENTITY_INSERT [dbo].[Funktion_Rettungsdienst] OFF;
-
-----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Sonderfunktionen" 
---?????????????? Ermitteln unterschiedlicher Sonderfunktionen ????????????????
--- Auflistung wer darf was tun
--- alternative für -> Tabelle Funktionen Personal  alles Auflisten und auf True or False setzen
---?????????? neue Tabelle für die Priorität der Funktion in der automatischen Funktionsplanung  ???????????????
-
-CREATE TABLE [dbo].[Sonderfunktionen](Sonderfunktion_ID int PRIMARY KEY,
-                                        Personal_ID int NOT NULL,
-                                        Maschinist_ELW boolean False,
-                                        Maschinist_RTW boolean False,
-                                        Maschinist_NEF boolean False,
-                                        Maschinist_LKW boolean False,
-                                        Maschinist_DLK boolean False, 
-                                        Maschinist_Kran boolean False,
-                                        Maschinist_TM_50 boolean False,
-                                        Maschinist_Saugwagen boolean False,
-                                        Maschinist_Boot boolean False,
-                                        Maschinist_GW_Mess boolean False,
-                                        Maschinist_GW_Wasser boolean False,
-                                        Maschinist_Dekon_G boolean False,
-                                        Maschinist_Dekon_P boolean False,
-                                        Maschinist_ErKw boolean False,
-                                        Maschinist_GW_San boolean False,
-                                        ABC_Dekon boolean False,
-                                        ABC_Erkunder boolean False,
-                                        Rüstgruppe boolean False,
-                                        Taucher boolean False,
-                                        ANT boolean False,
-                                        ANTS boolean False,
-                                        Langzeitgeräteträger boolean False,
-                                        ELW_3 boolean False,
-
-                        CONSTRAINT Personal_Fk FOREIGN KEY (Personal_ID) REFERENCES Personal(Personal_ID) ON DELETE CASCADE);
-
--- Daten für Tabelle "Sonderfunktionen"
-
-/*SET IDENTITY_INSERT [dbo].[Sonderfunktionen] ON ;
-INSERT INTO [dbo].[Sonderfunktionen] (Sonderfunktion_ID, Sonderfunktionen) VALUES
-(1, ''),(2, ''),(3, ''),(4, ''),(5, ''),(6, ''),(7, 'ohne');
-
-SET IDENTITY_INSERT [dbo].[Sonderfunktionen] OFF;*/
-
-----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Wachabteilung"
--- letzte Ebene der Normalisierung
-
-CREATE TABLE [dbo].[Wachabteilung](Wachabteilung_ID int PRIMARY KEY,
-                                   Abteilung varchar(10)) ;
-
--- Daten für Tabelle "Wachabteilung"
-SET IDENTITY_INSERT [dbo].[Wachabteilung] ON ;
-
-INSERT INTO [dbo].[Wachabteilung](Wachabteilung_ID, Abteilung) VALUES
-(1, '1_Tour'),(2, '2_Tour'),(3, '3_Tour'),(4, '4_Tour');
-
-SET IDENTITY_INSERT [dbo].[Wachabteilung] OFF;
-
-----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Funktionsbesetzung"
--- Speichern der Einteilung
-
-CREATE TABLE [dbo].[Funktionsbesetzung](Besetzungs_ID int PRIMARY KEY,
-                                        Personal_ID int,
-                                        Wachabteilungs_ID int,
-                                        Planungsdatum Date,
-                                        Plan_Dienststelle_Tag int,
-                                        Plan_Funktion_Tag int,
-                                        Plan_Dienststelle_Nacht int,
-                                        Plan_Funktion_Nacht int,
-
-                                        CONSTRAINT Personal_Fk FOREIGN KEY (Personal_ID) REFERENCES Personal(Personal_ID)ON DELETE CASCADE,
-                                        CONSTRAINT Wachabteilungs_Fk FOREIGN KEY (Wachabteilungs_ID) REFERENCES Wachabteilung(Wachabteilungs_ID)ON DELETE CASCADE) ;
-
+SET IDENTITY_INSERT [dbo].[Personal] OFF;
 -----------------------------------------------------------------------------------------------------------------------
 -- Tabellenstruktur für Tabelle "Personaldaten" 
 -- Wünschenswert Zugriff auf die PLASMA Datenbank
@@ -429,57 +398,80 @@ SET IDENTITY_INSERT [dbo].[Profilbilder] ON;
 SET IDENTITY_INSERT [dbo].[Stuetzpunkte] OFF;
 
 ----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Stützpunkte_has_Dienststellen"
--- Welcher Stützpunkt ist der Hauptwache zugeordnet und ab wann bzw bis wann (Wachtagebuch einsicht rückwirkend)
---!!!!!!!!!!!!!!!! Datum für Auswertung ab/bis !!!!!!!!!!!!
+/*-- Tabellenstruktur für Tabelle "Sonderfunktionen" 
+--?????????????? Ermitteln unterschiedlicher Sonderfunktionen ????????????????
+-- Auflistung wer darf was tun
+-- alternative für -> Tabelle Funktionen Personal  alles Auflisten und auf True or False setzen
+--?????????? neue Tabelle für die Priorität der Funktion in der automatischen Funktionsplanung  ???????????????
 
-CREATE TABLE [dbo].[Stützpunkte_has_Dienststellen](Dienststelle_has_ID int PRIMARY KEY,
-                                                    Dienststellen_ID int,
-                                                    Stuetzpunkt_ID int,
-                                                    Stuetzpunkt_Rang int,
-                                                    
-                                                    CONSTRAINT Dienststellen_Fk FOREIGN KEY (Dienststellen_ID) REFERENCES Dienststellen(Dienststellen_ID)ON DELETE CASCADE,
-                                                    CONSTRAINT StuePun_Fk FOREIGN KEY (Stuetzpunkt_ID) REFERENCES Dienstgrad(Dienstgrad_ID)ON DELETE CASCADE,
-                                                    CONSTRAINT StuePunRang_Fk FOREIGN KEY (Stuetzpunkt_ID) REFERENCES Dienstgrad(Dienstgrad_ID)ON DELETE CASCADE);
-SET IDENTITY_INSERT [dbo].[Stützpunkte_has_Dienststellen] ON;
+CREATE TABLE [dbo].[Sonderfunktionen](Sonderfunktion_ID int PRIMARY KEY,
+                                        Personal_ID int NOT NULL,
+                                        Maschinist_ELW Boolean False,
+                                        Maschinist_RTW boolean False,
+                                        Maschinist_NEF boolean False,
+                                        Maschinist_LKW boolean False,
+                                        Maschinist_DLK boolean False, 
+                                        Maschinist_Kran boolean False,
+                                        Maschinist_TM_50 boolean False,
+                                        Maschinist_Saugwagen boolean False,
+                                        Maschinist_Boot boolean False,
+                                        Maschinist_GW_Mess boolean False,
+                                        Maschinist_GW_Wasser boolean False,
+                                        Maschinist_Dekon_G boolean False,
+                                        Maschinist_Dekon_P boolean False,
+                                        Maschinist_ErKw boolean False,
+                                        Maschinist_GW_San boolean False,
+                                        ABC_Dekon boolean False,
+                                        ABC_Erkunder boolean False,
+                                        Rüstgruppe boolean False,
+                                        Taucher boolean False,
+                                        ANT boolean False,
+                                        ANTS boolean False,
+                                        Langzeitgeräteträger boolean False,
+                                        ELW_3 boolean False,
+										CONSTRAINT Personal_Fk FOREIGN KEY (Personal_ID) REFERENCES Personal(Personal_ID)ON DELETE CASCADE);
 
---INSERT INTO [dbo].[Profilbilder](Dienststelle_has_ID, Dienststellen_ID, Stuetzpunkt_ID , Stuetzpunkt_Rang) VALUES
+-- Daten für Tabelle "Sonderfunktionen"
 
-SET IDENTITY_INSERT [dbo].[Stützpunkte_has_Dienststellen] OFF;
+/*SET IDENTITY_INSERT [dbo].[Sonderfunktionen] ON ;
+INSERT INTO [dbo].[Sonderfunktionen] (Sonderfunktion_ID, Sonderfunktionen) VALUES
+(1, ''),(2, ''),(3, ''),(4, ''),(5, ''),(6, ''),(7, 'ohne');
+
+SET IDENTITY_INSERT [dbo].[Sonderfunktionen] OFF;*/
+*/
 ----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Wachzuordnung"
-CREATE TABLE [dbo].[Wachzuordnung](Wachzuordnung_ID int PRIMARY KEY) ;
+-- Tabellenstruktur für Tabelle "Funktionsbesetzung"
+-- Speichern der Einteilung
 
--- Daten für Tabelle "Wachzuordnung"
-SET IDENTITY_INSERT [dbo].[Wachzuordnung] ON ;
+CREATE TABLE [dbo].[Funktionsbesetzung](Besetzungs_ID int PRIMARY KEY,
+                                        Personal_ID int,
+                                        Wachabteilungs_ID int,
+                                        Planungsdatum Date,
+                                        Plan_Dienststelle_Tag int,
+                                        Plan_Funktion_Tag int,
+                                        Plan_Dienststelle_Nacht int,
+                                        Plan_Funktion_Nacht int,
 
---INSERT INTO [dbo].[Wachzuordnung](Wachzuordnung_ID) VALUES
-
-
-SET IDENTITY_INSERT [dbo].[Wachzuordnung] OFF;
+                                        CONSTRAINT Personal_Fk FOREIGN KEY (Personal_ID) REFERENCES Personal(Personal_ID)ON DELETE CASCADE,
+                                        CONSTRAINT Wachabteilungs_Fk FOREIGN KEY (Wachabteilungs_ID) REFERENCES Wachabteilung(Wachabteilung_ID)ON DELETE CASCADE) ;
 ----------------------------------------------------------------------------------------------------------------------
--- Tabellenstruktur für Tabelle "Personal"
--- Wünschenswert Zugriff auf die PLASMA Datenbank
+-- Tabellenstruktur für Tabelle "Funktion_Personal"
+-- Was darf welcher Kollege für Funktionen ausüben
+-- letzte Ebene der Normalisierung
 
-CREATE TABLE [dbo].[Personal](Personal_ID int PRIMARY KEY,
-            PersonalNr int,
-            Nachname varchar(50),
-            Vorname varchar(50),
-            Dienstgrad_ID int,
-            Dienststellen_ID int,
-            Wachabteilung_ID int,
-            FwZuordnung_ID int
-            CONSTRAINT DG_Fk FOREIGN KEY (Dienstgrad_ID) REFERENCES Dienstgrad(Dienstgrad_ID)ON DELETE CASCADE,
-            CONSTRAINT Dienststellen_Fk FOREIGN KEY (Dienststellen_ID)  REFERENCES Dienststellen(Dienststellen_ID)ON DELETE CASCADE,
-            CONSTRAINT Wachabteilung_Fk FOREIGN KEY (Wachabteilung_ID)  REFERENCES Wachabteilung(Wachabteilung_ID)ON DELETE CASCADE,
-            CONSTRAINT FwZuordnung_Fk FOREIGN KEY (FwZuordnung_ID)  REFERENCES FwZuordnung(FwZuordnung_ID)ON DELETE CASCADE);
+CREATE TABLE [dbo].[Funktion_Personal](Grundfunktions_ID int PRIMARY KEY,
+                    Funktionsbezeichnung varchar(40),
+                    FunktionsKeyBerechnung int) ;
 
-SET IDENTITY_INSERT [dbo].[Personal] ON;
+SET IDENTITY_INSERT [dbo].[Funktion_Personal] ON;
 
---INSERT INTO [dbo].[Personal](Personal_ID, PersonalNr, Nachname, Vorname, Dienstgrad_ID,
--- Dienststellen_ID, Abteilungs_ID, FwZuordnung_ID) VALUES
+-- Summe mehrerer "FunktionsKeyBerechnung" muss eindeutig sein um einzelne Fahrzeugfunktion zu bestimmen
+-- Bsp.: Key.: 99999999 = ohne Funktion / 1 höhste 8 niedrigste Funktion
+-- Zusammensetzung aus (Führungsfunktion=1 ,Maschinist Wache, Maschinist Führungsfahrzeuge, Maschinist Sonderfahrzeuge, Rettungsdienstfunktion)
+--  oder: jede Funktion eindeutige Nummer - Summe aller Nummern ist Berechtigungs Key                                           
+--                                             )
+INSERT INTO [dbo].[Funktion_Personal](Grundfunktions_ID, Funktionsbezeichnung, FunktionsKeyBerechnung) VALUES
+(1,'A-Dienst',19999999),(2,'B-Dienst',29999999),(3,'C-Dienst',39999999),(4,'Zfg',49999999);
 
-
-SET IDENTITY_INSERT [dbo].[Personal] OFF;
-
+SET IDENTITY_INSERT [dbo].[Funktion_Personal] OFF;
 ----------------------------------------------------------------------------------------------------------------------
